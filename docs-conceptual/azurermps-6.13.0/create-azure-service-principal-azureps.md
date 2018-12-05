@@ -8,40 +8,40 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/09/2018
-ms.openlocfilehash: 433a638187f024883c177457e420a759968fed9a
-ms.sourcegitcommit: 80a3da199954d0ab78765715fb49793e89a30f12
+ms.openlocfilehash: 2db1ada32e5a9285c27ec3f569b622c9c33a06b0
+ms.sourcegitcommit: 558436c824d9b59731aa9b963cdc8df4dea932e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52259692"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52587808"
 ---
-# <a name="create-an-azure-service-principal-with-azure-powershell"></a><span data-ttu-id="6dd15-104">Azure PowerShell을 사용하여 Azure 서비스 주체 만들기</span><span class="sxs-lookup"><span data-stu-id="6dd15-104">Create an Azure service principal with Azure PowerShell</span></span>
+# <a name="create-an-azure-service-principal-with-azure-powershell"></a><span data-ttu-id="4a653-104">Azure PowerShell을 사용하여 Azure 서비스 주체 만들기</span><span class="sxs-lookup"><span data-stu-id="4a653-104">Create an Azure service principal with Azure PowerShell</span></span>
 
-<span data-ttu-id="6dd15-105">Azure PowerShell을 사용하여 앱 또는 서비스를 관리하려는 경우 고유한 자격 증명 대신 AAD(Azure Active Directory) 서비스 주체에서 실행해야 합니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-105">If you plan to manage your app or service with Azure PowerShell, you should run it under an Azure Active Directory (AAD) service principal, rather than your own credentials.</span></span> <span data-ttu-id="6dd15-106">이 문서에서는 Azure PowerShell을 사용하여 보안 주체를 만드는 과정을 설명합니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-106">This article steps you through creating a security principal with Azure PowerShell.</span></span>
+<span data-ttu-id="4a653-105">Azure PowerShell을 사용하여 앱 또는 서비스를 관리하려는 경우 고유한 자격 증명 대신 AAD(Azure Active Directory) 서비스 주체에서 실행해야 합니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-105">If you plan to manage your app or service with Azure PowerShell, you should run it under an Azure Active Directory (AAD) service principal, rather than your own credentials.</span></span> <span data-ttu-id="4a653-106">이 문서에서는 Azure PowerShell을 사용하여 보안 주체를 만드는 과정을 설명합니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-106">This article steps you through creating a security principal with Azure PowerShell.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="6dd15-107">Azure Portal을 통해 서비스 주체를 만들 수도 있습니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-107">You can also create a service principal through the Azure portal.</span></span> <span data-ttu-id="6dd15-108">자세한 내용은 [포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기](/azure/azure-resource-manager/resource-group-create-service-principal-portal)를 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="6dd15-108">Read [Use portal to create Active Directory application and service principal that can access resources](/azure/azure-resource-manager/resource-group-create-service-principal-portal) for more details.</span></span>
+> <span data-ttu-id="4a653-107">Azure Portal을 통해 서비스 주체를 만들 수도 있습니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-107">You can also create a service principal through the Azure portal.</span></span> <span data-ttu-id="4a653-108">자세한 내용은 [포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기](/azure/azure-resource-manager/resource-group-create-service-principal-portal)를 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="4a653-108">Read [Use portal to create Active Directory application and service principal that can access resources](/azure/azure-resource-manager/resource-group-create-service-principal-portal) for more details.</span></span>
 
-## <a name="what-is-a-service-principal"></a><span data-ttu-id="6dd15-109">'서비스 주체'란?</span><span class="sxs-lookup"><span data-stu-id="6dd15-109">What is a 'service principal'?</span></span>
+## <a name="what-is-a-service-principal"></a><span data-ttu-id="4a653-109">'서비스 주체'란?</span><span class="sxs-lookup"><span data-stu-id="4a653-109">What is a 'service principal'?</span></span>
 
-<span data-ttu-id="6dd15-110">Azure 서비스 주체는 특정 Azure 리소스에 액세스하기 위해 사용자가 만든 앱, 서비스 및 자동화 도구에서 사용하는 보안 ID입니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-110">An Azure service principal is a security identity used by user-created apps, services, and automation tools to access specific Azure resources.</span></span> <span data-ttu-id="6dd15-111">특정한 역할이 있는 '사용자 ID'(사용자 이름과 암호 또는 인증서)이며 엄격하게 제어됩니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-111">Think of it as a 'user identity' (username and password or certificate) with a specific role, and tightly controlled permissions.</span></span> <span data-ttu-id="6dd15-112">일반 사용자 ID와 달리 서비스 주체는 특정 작업만 수행하면 됩니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-112">A service principal should only need to do specific things, unlike a general user identity.</span></span> <span data-ttu-id="6dd15-113">해당 관리 작업을 수행하는 데 필요한 최소 사용 권한 수준을 부여하는 경우 보안이 향상됩니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-113">It improves security if you only grant it the minimum permissions level needed to perform its management tasks.</span></span>
+<span data-ttu-id="4a653-110">Azure 서비스 주체는 특정 Azure 리소스에 액세스하기 위해 사용자가 만든 앱, 서비스 및 자동화 도구에서 사용하는 보안 ID입니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-110">An Azure service principal is a security identity used by user-created apps, services, and automation tools to access specific Azure resources.</span></span> <span data-ttu-id="4a653-111">특정한 역할이 있는 '사용자 ID'(사용자 이름과 암호 또는 인증서)이며 엄격하게 제어됩니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-111">Think of it as a 'user identity' (username and password or certificate) with a specific role, and tightly controlled permissions.</span></span> <span data-ttu-id="4a653-112">일반 사용자 ID와 달리 서비스 주체는 특정 작업만 수행하면 됩니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-112">A service principal should only need to do specific things, unlike a general user identity.</span></span> <span data-ttu-id="4a653-113">해당 관리 작업을 수행하는 데 필요한 최소 사용 권한 수준을 부여하는 경우 보안이 향상됩니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-113">It improves security if you only grant it the minimum permissions level needed to perform its management tasks.</span></span>
 
-## <a name="verify-your-own-permission-level"></a><span data-ttu-id="6dd15-114">고유한 사용 권한 수준 확인</span><span class="sxs-lookup"><span data-stu-id="6dd15-114">Verify your own permission level</span></span>
+## <a name="verify-your-own-permission-level"></a><span data-ttu-id="4a653-114">고유한 사용 권한 수준 확인</span><span class="sxs-lookup"><span data-stu-id="4a653-114">Verify your own permission level</span></span>
 
-<span data-ttu-id="6dd15-115">먼저 Azure Active Directory와 Azure 구독에 대한 충분한 권한이 있어야 합니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-115">First, you must have sufficient permissions in both your Azure Active Directory and your Azure subscription.</span></span> <span data-ttu-id="6dd15-116">Active Directory에서 앱을 만들고 서비스 주체에 역할을 할당할 수 있어야 합니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-116">You must be able to create an app in the Active Directory and assign a role to the service principal.</span></span>
+<span data-ttu-id="4a653-115">먼저 Azure Active Directory와 Azure 구독에 대한 충분한 권한이 있어야 합니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-115">First, you must have sufficient permissions in both your Azure Active Directory and your Azure subscription.</span></span> <span data-ttu-id="4a653-116">Active Directory에서 앱을 만들고 서비스 주체에 역할을 할당할 수 있어야 합니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-116">You must be able to create an app in the Active Directory and assign a role to the service principal.</span></span>
 
-<span data-ttu-id="6dd15-117">계정에 올바른 사용 권한이 있는지를 확인하는 가장 쉬운 방법은 포털을 통하는 것입니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-117">The easiest way to check whether your account has the right permissions is through the portal.</span></span> <span data-ttu-id="6dd15-118">[포털에서 필요한 사용 권한 확인](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)을 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="6dd15-118">See [Check required permission in portal](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions).</span></span>
+<span data-ttu-id="4a653-117">계정에 올바른 사용 권한이 있는지를 확인하는 가장 쉬운 방법은 포털을 통하는 것입니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-117">The easiest way to check whether your account has the right permissions is through the portal.</span></span> <span data-ttu-id="4a653-118">[포털에서 필요한 사용 권한 확인](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)을 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="4a653-118">See [Check required permission in portal](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions).</span></span>
 
-## <a name="create-a-service-principal-for-your-app"></a><span data-ttu-id="6dd15-119">앱의 서비스 주체 만들기</span><span class="sxs-lookup"><span data-stu-id="6dd15-119">Create a service principal for your app</span></span>
+## <a name="create-a-service-principal-for-your-app"></a><span data-ttu-id="4a653-119">앱의 서비스 주체 만들기</span><span class="sxs-lookup"><span data-stu-id="4a653-119">Create a service principal for your app</span></span>
 
-<span data-ttu-id="6dd15-120">Azure 계정에 로그인하면 서비스 주체를 만들 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-120">Once signed in to your Azure account, you can create the service principal.</span></span> <span data-ttu-id="6dd15-121">다음 방법 중 하나로 배포된 앱을 식별해야 합니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-121">You must have one of the following ways to identify your deployed app:</span></span>
+<span data-ttu-id="4a653-120">Azure 계정에 로그인하면 서비스 주체를 만들 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-120">Once signed in to your Azure account, you can create the service principal.</span></span> <span data-ttu-id="4a653-121">다음 방법 중 하나로 배포된 앱을 식별해야 합니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-121">You must have one of the following ways to identify your deployed app:</span></span>
 
-* <span data-ttu-id="6dd15-122">다음 예제에서 "MyDemoWebApp"와 같은 배포된 앱의 고유 이름 또는</span><span class="sxs-lookup"><span data-stu-id="6dd15-122">The unique name of your deployed app, such as "MyDemoWebApp" in the following examples, or</span></span>
-* <span data-ttu-id="6dd15-123">응용 프로그램 ID, 배포된 앱, 서비스 또는 개체와 관련된 고유 GUID</span><span class="sxs-lookup"><span data-stu-id="6dd15-123">the Application ID, the unique GUID associated with your deployed app, service, or object</span></span>
+* <span data-ttu-id="4a653-122">다음 예제에서 "MyDemoWebApp"와 같은 배포된 앱의 고유 이름 또는</span><span class="sxs-lookup"><span data-stu-id="4a653-122">The unique name of your deployed app, such as "MyDemoWebApp" in the following examples, or</span></span>
+* <span data-ttu-id="4a653-123">응용 프로그램 ID, 배포된 앱, 서비스 또는 개체와 관련된 고유 GUID</span><span class="sxs-lookup"><span data-stu-id="4a653-123">the Application ID, the unique GUID associated with your deployed app, service, or object</span></span>
 
-### <a name="get-information-about-your-application"></a><span data-ttu-id="6dd15-124">응용 프로그램에 대한 정보 가져오기</span><span class="sxs-lookup"><span data-stu-id="6dd15-124">Get information about your application</span></span>
+### <a name="get-information-about-your-application"></a><span data-ttu-id="4a653-124">응용 프로그램에 대한 정보 가져오기</span><span class="sxs-lookup"><span data-stu-id="4a653-124">Get information about your application</span></span>
 
-<span data-ttu-id="6dd15-125">`Get-AzureRmADApplication` cmdlet을 사용하여 응용 프로그램에 대한 정보를 가져올 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-125">The `Get-AzureRmADApplication` cmdlet can be used to get information about your application.</span></span>
+<span data-ttu-id="4a653-125">`Get-AzureRmADApplication` cmdlet을 사용하여 응용 프로그램에 대한 정보를 가져올 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-125">The `Get-AzureRmADApplication` cmdlet can be used to get information about your application.</span></span>
 
 ```azurepowershell-interactive
 Get-AzureRmADApplication -DisplayNameStartWith MyDemoWebApp
@@ -59,48 +59,42 @@ AppPermissions          :
 ReplyUrls               : {}
 ```
 
-### <a name="create-a-service-principal-for-your-application"></a><span data-ttu-id="6dd15-126">응용 프로그램의 서비스 주체 만들기</span><span class="sxs-lookup"><span data-stu-id="6dd15-126">Create a service principal for your application</span></span>
+### <a name="create-a-service-principal-for-your-application"></a><span data-ttu-id="4a653-126">응용 프로그램의 서비스 주체 만들기</span><span class="sxs-lookup"><span data-stu-id="4a653-126">Create a service principal for your application</span></span>
 
-<span data-ttu-id="6dd15-127">`New-AzureRmADServicePrincipal` cmdlet을 사용하여 서비스 주체를 만듭니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-127">The `New-AzureRmADServicePrincipal` cmdlet is used to create the service principal.</span></span>
+<span data-ttu-id="4a653-127">`New-AzureRmADServicePrincipal` cmdlet을 사용하여 서비스 주체를 만듭니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-127">The `New-AzureRmADServicePrincipal` cmdlet is used to create the service principal.</span></span>
 
 ```azurepowershell-interactive
-Add-Type -Assembly System.Web
-$password = [System.Web.Security.Membership]::GeneratePassword(16,3)
-$securePassword = ConvertTo-SecureString -Force -AsPlainText -String $password
-New-AzureRmADServicePrincipal -ApplicationId 00c01aaa-1603-49fc-b6df-b78c4e5138b4 -Password $securePassword
+$servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId 00c01aaa-1603-49fc-b6df-b78c4e5138b4
 ```
 
 ```output
-DisplayName                    Type                           ObjectId
------------                    ----                           --------
-MyDemoWebApp                   ServicePrincipal               698138e7-d7b6-4738-a866-b4e3081a69e4
-```
-
-### <a name="get-information-about-the-service-principal"></a><span data-ttu-id="6dd15-128">서비스 주체에 대한 정보 가져오기</span><span class="sxs-lookup"><span data-stu-id="6dd15-128">Get information about the service principal</span></span>
-
-```azurepowershell-interactive
-$svcprincipal = Get-AzureRmADServicePrincipal -ObjectId 698138e7-d7b6-4738-a866-b4e3081a69e4
-$svcprincipal | Select-Object *
-```
-
-```output
-ServicePrincipalNames : {http://MyDemoWebApp, 00c01aaa-1603-49fc-b6df-b78c4e5138b4}
+Secret                : System.Security.SecureString
+ServicePrincipalNames : {00c01aaa-1603-49fc-b6df-b78c4e5138b4, http://MyDemoWebApp}
 ApplicationId         : 00c01aaa-1603-49fc-b6df-b78c4e5138b4
 DisplayName           : MyDemoWebApp
 Id                    : 698138e7-d7b6-4738-a866-b4e3081a69e4
+AdfsId                :
 Type                  : ServicePrincipal
 ```
 
-### <a name="sign-in-using-the-service-principal"></a><span data-ttu-id="6dd15-129">서비스 주체를 사용하여 로그인</span><span class="sxs-lookup"><span data-stu-id="6dd15-129">Sign in using the service principal</span></span>
-
-<span data-ttu-id="6dd15-130">이제 제공한 *appId* 및 *암호*를 사용하여 앱에 새로운 서비스 주체로 로그인할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-130">You can now sign in as the new service principal for your app using the *appId* and *password* you provided.</span></span> <span data-ttu-id="6dd15-131">또한 서비스 주체에 대한 테넌트 ID가 필요합니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-131">You also need the Tenant ID for the service principal.</span></span> <span data-ttu-id="6dd15-132">개인 자격 증명을 사용하여 Azure에 로그인하는 경우 테넌트 ID가 표시됩니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-132">Your Tenant ID is displayed when you sign into Azure with your personal credentials.</span></span> <span data-ttu-id="6dd15-133">서비스 주체로 로그인하려면 다음 명령을 사용합니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-133">To sign in with a service principal, use the following commands:</span></span>
+<span data-ttu-id="4a653-128">여기에서 Connect-AzureRmAccount에서 $servicePrincipal.Secret 속성을 직접 사용하거나(아래 "서비스 사용자를 사용하여 로그인"을 참조), 이 SecureString을 일반 텍스트 문자열로 변환하여 나중에 사용하도록 할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-128">From here, you can either directly use the $servicePrincipal.Secret property in Connect-AzureRmAccount (see "Sign in using the service principal" below), or you can convert this SecureString to a plain text string for later usage:</span></span>
 
 ```azurepowershell-interactive
-$cred = Get-Credential -UserName $svcprincipal.ApplicationId -Message "Enter Password"
+$BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($servicePrincipal.Secret)
+$password = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+[Runtime.InteropServices.Marshal]::ZeroFreeBSTR($BSTR)
+```
+
+### <a name="sign-in-using-the-service-principal"></a><span data-ttu-id="4a653-129">서비스 주체를 사용하여 로그인</span><span class="sxs-lookup"><span data-stu-id="4a653-129">Sign in using the service principal</span></span>
+
+<span data-ttu-id="4a653-130">이제 제공한 *appId* 및 자동으로 생성된 *암호*를 사용하여 앱에 새로운 서비스 주체로 로그인할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-130">You can now sign in as the new service principal for your app using the *appId* you provided and *password* that was automatically generated.</span></span> <span data-ttu-id="4a653-131">또한 서비스 주체에 대한 테넌트 ID가 필요합니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-131">You also need the Tenant ID for the service principal.</span></span> <span data-ttu-id="4a653-132">개인 자격 증명을 사용하여 Azure에 로그인하는 경우 테넌트 ID가 표시됩니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-132">Your Tenant ID is displayed when you sign into Azure with your personal credentials.</span></span> <span data-ttu-id="4a653-133">서비스 주체로 로그인하려면 다음 명령을 사용합니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-133">To sign in with a service principal, use the following commands:</span></span>
+
+```azurepowershell-interactive
+$cred = New-Object System.Management.Automation.PSCredential ("00c01aaa-1603-49fc-b6df-b78c4e5138b4", $servicePrincipal.Secret)
 Connect-AzureRmAccount -Credential $cred -ServicePrincipal -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 ```
 
-<span data-ttu-id="6dd15-134">로그인이 성공한 후 다음과 같은 출력이 표시됩니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-134">After a successful sign-in you see output like:</span></span>
+<span data-ttu-id="4a653-134">로그인이 성공한 후 다음과 같은 출력이 표시됩니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-134">After a successful sign-in you see output like:</span></span>
 
 ```output
 Environment           : AzureCloud
@@ -111,23 +105,23 @@ SubscriptionName      :
 CurrentStorageAccount :
 ```
 
-<span data-ttu-id="6dd15-135">축하합니다!</span><span class="sxs-lookup"><span data-stu-id="6dd15-135">Congratulations!</span></span> <span data-ttu-id="6dd15-136">이러한 자격 증명을 사용하여 앱을 실행할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-136">You can use these credentials to run your app.</span></span> <span data-ttu-id="6dd15-137">다음으로 서비스 주체의 사용 권한을 조정해야 합니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-137">Next, you need to adjust the permissions of the service principal.</span></span>
+<span data-ttu-id="4a653-135">축하합니다!</span><span class="sxs-lookup"><span data-stu-id="4a653-135">Congratulations!</span></span> <span data-ttu-id="4a653-136">이러한 자격 증명을 사용하여 앱을 실행할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-136">You can use these credentials to run your app.</span></span> <span data-ttu-id="4a653-137">다음으로 서비스 주체의 사용 권한을 조정해야 합니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-137">Next, you need to adjust the permissions of the service principal.</span></span>
 
-## <a name="managing-roles"></a><span data-ttu-id="6dd15-138">역할 관리</span><span class="sxs-lookup"><span data-stu-id="6dd15-138">Managing roles</span></span>
+## <a name="managing-roles"></a><span data-ttu-id="4a653-138">역할 관리</span><span class="sxs-lookup"><span data-stu-id="4a653-138">Managing roles</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="6dd15-139">Azure 역할 기반 Access Control(RBAC)은 사용자 및 서비스 주체에 대한 역할을 정의하고 관리하기 위한 모델입니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-139">Azure Role-Based Access Control (RBAC) is a model for defining and managing roles for user and service principals.</span></span> <span data-ttu-id="6dd15-140">역할에는 그와 관련된 일련의 사용 권한이 있으며 여기서 주체가 읽고 액세스하고 쓰고 관리할 수 있는 리소스를 결정합니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-140">Roles have sets of permissions associated with them, which determine the resources a principal can read, access, write, or manage.</span></span> <span data-ttu-id="6dd15-141">RBAC와 역할에 대한 자세한 내용은 [RBAC: 기본 제공 역할](/azure/active-directory/role-based-access-built-in-roles)을 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="6dd15-141">For more information on RBAC and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).</span></span>
+> <span data-ttu-id="4a653-139">Azure 역할 기반 Access Control(RBAC)은 사용자 및 서비스 주체에 대한 역할을 정의하고 관리하기 위한 모델입니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-139">Azure Role-Based Access Control (RBAC) is a model for defining and managing roles for user and service principals.</span></span> <span data-ttu-id="4a653-140">역할에는 그와 관련된 일련의 사용 권한이 있으며 여기서 주체가 읽고 액세스하고 쓰고 관리할 수 있는 리소스를 결정합니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-140">Roles have sets of permissions associated with them, which determine the resources a principal can read, access, write, or manage.</span></span> <span data-ttu-id="4a653-141">RBAC와 역할에 대한 자세한 내용은 [RBAC: 기본 제공 역할](/azure/active-directory/role-based-access-built-in-roles)을 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="4a653-141">For more information on RBAC and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).</span></span>
 
-<span data-ttu-id="6dd15-142">Azure PowerShell은 역할 할당을 관리하는 다음과 같은 cmdlet을 제공합니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-142">Azure PowerShell provides the following cmdlets to manage role assignments:</span></span>
+<span data-ttu-id="4a653-142">Azure PowerShell은 역할 할당을 관리하는 다음과 같은 cmdlet을 제공합니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-142">Azure PowerShell provides the following cmdlets to manage role assignments:</span></span>
 
-* [<span data-ttu-id="6dd15-143">Get-AzureRmRoleAssignment</span><span class="sxs-lookup"><span data-stu-id="6dd15-143">Get-AzureRmRoleAssignment</span></span>](/powershell/module/azurerm.resources/get-azurermroleassignment)
-* [<span data-ttu-id="6dd15-144">New-AzureRmRoleAssignment</span><span class="sxs-lookup"><span data-stu-id="6dd15-144">New-AzureRmRoleAssignment</span></span>](/powershell/module/azurerm.resources/new-azurermroleassignment)
-* [<span data-ttu-id="6dd15-145">Remove-AzureRmRoleAssignment</span><span class="sxs-lookup"><span data-stu-id="6dd15-145">Remove-AzureRmRoleAssignment</span></span>](/powershell/module/azurerm.resources/remove-azurermroleassignment)
+* [<span data-ttu-id="4a653-143">Get-AzureRmRoleAssignment</span><span class="sxs-lookup"><span data-stu-id="4a653-143">Get-AzureRmRoleAssignment</span></span>](/powershell/module/azurerm.resources/get-azurermroleassignment)
+* [<span data-ttu-id="4a653-144">New-AzureRmRoleAssignment</span><span class="sxs-lookup"><span data-stu-id="4a653-144">New-AzureRmRoleAssignment</span></span>](/powershell/module/azurerm.resources/new-azurermroleassignment)
+* [<span data-ttu-id="4a653-145">Remove-AzureRmRoleAssignment</span><span class="sxs-lookup"><span data-stu-id="4a653-145">Remove-AzureRmRoleAssignment</span></span>](/powershell/module/azurerm.resources/remove-azurermroleassignment)
 
-<span data-ttu-id="6dd15-146">서비스 주체의 기본 역할은 **참가자**입니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-146">The default role for a service principal is **Contributor**.</span></span> <span data-ttu-id="6dd15-147">광범위한 사용 권한을 고려하면 Azure 서비스와 앱의 상호 작용의 범위에 따라 최상의 선택이 아닐 수도 있습니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-147">It may not be the best choice depending on the scope of your app's interactions with Azure services, given its broad permissions.</span></span>
-<span data-ttu-id="6dd15-148">**판독기** 역할은 더 제한적이며 읽기 전용 앱의 경우에 좋은 선택이 될 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-148">The **Reader** role is more restrictive and can be a good choice for read-only apps.</span></span> <span data-ttu-id="6dd15-149">역할 관련 사용 권한에 대한 세부 정보를 보거나 Azure Portal을 통해 사용자 지정 레코드를 만들 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-149">You can view details on role-specific permissions or create custom ones through the Azure portal.</span></span>
+<span data-ttu-id="4a653-146">서비스 주체의 기본 역할은 **참가자**입니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-146">The default role for a service principal is **Contributor**.</span></span> <span data-ttu-id="4a653-147">광범위한 사용 권한을 고려하면 Azure 서비스와 앱의 상호 작용의 범위에 따라 최상의 선택이 아닐 수도 있습니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-147">It may not be the best choice depending on the scope of your app's interactions with Azure services, given its broad permissions.</span></span>
+<span data-ttu-id="4a653-148">**판독기** 역할은 더 제한적이며 읽기 전용 앱의 경우에 좋은 선택이 될 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-148">The **Reader** role is more restrictive and can be a good choice for read-only apps.</span></span> <span data-ttu-id="4a653-149">역할 관련 사용 권한에 대한 세부 정보를 보거나 Azure Portal을 통해 사용자 지정 레코드를 만들 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-149">You can view details on role-specific permissions or create custom ones through the Azure portal.</span></span>
 
-<span data-ttu-id="6dd15-150">이 예제에서는 **판독기** 역할을 이전 예제에 추가하고 **참가자** 역할을 삭제합니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-150">In this example, we add the **Reader** role to our prior example, and delete the **Contributor** one:</span></span>
+<span data-ttu-id="4a653-150">이 예제에서는 **판독기** 역할을 이전 예제에 추가하고 **참가자** 역할을 삭제합니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-150">In this example, we add the **Reader** role to our prior example, and delete the **Contributor** one:</span></span>
 
 ```azurepowershell-interactive
 New-AzureRmRoleAssignment -ResourceGroupName myRG -ObjectId 698138e7-d7b6-4738-a866-b4e3081a69e4 -RoleDefinitionName Reader
@@ -148,7 +142,7 @@ ObjectType         : ServicePrincipal
 Remove-AzureRmRoleAssignment -ResourceGroupName myRG -ObjectId 698138e7-d7b6-4738-a866-b4e3081a69e4 -RoleDefinitionName Contributor
 ```
 
-<span data-ttu-id="6dd15-151">현재 할당된 역할을 보려면:</span><span class="sxs-lookup"><span data-stu-id="6dd15-151">To view the current roles assigned:</span></span>
+<span data-ttu-id="4a653-151">현재 할당된 역할을 보려면:</span><span class="sxs-lookup"><span data-stu-id="4a653-151">To view the current roles assigned:</span></span>
 
 ```azurepowershell-interactive
 Get-AzureRmRoleAssignment -ResourceGroupName myRG -ObjectId 698138e7-d7b6-4738-a866-b4e3081a69e4
@@ -165,31 +159,32 @@ ObjectId           : 698138e7-d7b6-4738-a866-b4e3081a69e4
 ObjectType         : ServicePrincipal
 ```
 
-<span data-ttu-id="6dd15-152">역할 관리를 위한 기타 Azure PowerShell cmdlet:</span><span class="sxs-lookup"><span data-stu-id="6dd15-152">Other Azure PowerShell cmdlets for role management:</span></span>
+<span data-ttu-id="4a653-152">역할 관리를 위한 기타 Azure PowerShell cmdlet:</span><span class="sxs-lookup"><span data-stu-id="4a653-152">Other Azure PowerShell cmdlets for role management:</span></span>
 
-* [<span data-ttu-id="6dd15-153">Get-AzureRmRoleDefinition</span><span class="sxs-lookup"><span data-stu-id="6dd15-153">Get-AzureRmRoleDefinition</span></span>](/powershell/module/azurerm.resources/Get-AzureRmRoleDefinition)
-* [<span data-ttu-id="6dd15-154">New-AzureRmRoleDefinition</span><span class="sxs-lookup"><span data-stu-id="6dd15-154">New-AzureRmRoleDefinition</span></span>](/powershell/module/azurerm.resources/New-AzureRmRoleDefinition)
-* [<span data-ttu-id="6dd15-155">Remove-AzureRmRoleDefinition</span><span class="sxs-lookup"><span data-stu-id="6dd15-155">Remove-AzureRmRoleDefinition</span></span>](/powershell/module/azurerm.resources/Remove-AzureRmRoleDefinition)
-* [<span data-ttu-id="6dd15-156">Set-AzureRmRoleDefinition</span><span class="sxs-lookup"><span data-stu-id="6dd15-156">Set-AzureRmRoleDefinition</span></span>](/powershell/module/azurerm.resources/Set-AzureRmRoleDefinition)
+* [<span data-ttu-id="4a653-153">Get-AzureRmRoleDefinition</span><span class="sxs-lookup"><span data-stu-id="4a653-153">Get-AzureRmRoleDefinition</span></span>](/powershell/module/azurerm.resources/Get-AzureRmRoleDefinition)
+* [<span data-ttu-id="4a653-154">New-AzureRmRoleDefinition</span><span class="sxs-lookup"><span data-stu-id="4a653-154">New-AzureRmRoleDefinition</span></span>](/powershell/module/azurerm.resources/New-AzureRmRoleDefinition)
+* [<span data-ttu-id="4a653-155">Remove-AzureRmRoleDefinition</span><span class="sxs-lookup"><span data-stu-id="4a653-155">Remove-AzureRmRoleDefinition</span></span>](/powershell/module/azurerm.resources/Remove-AzureRmRoleDefinition)
+* [<span data-ttu-id="4a653-156">Set-AzureRmRoleDefinition</span><span class="sxs-lookup"><span data-stu-id="4a653-156">Set-AzureRmRoleDefinition</span></span>](/powershell/module/azurerm.resources/Set-AzureRmRoleDefinition)
 
-## <a name="change-the-credentials-of-the-security-principal"></a><span data-ttu-id="6dd15-157">보안 주체의 자격 증명 변경</span><span class="sxs-lookup"><span data-stu-id="6dd15-157">Change the credentials of the security principal</span></span>
+## <a name="change-the-credentials-of-the-security-principal"></a><span data-ttu-id="4a653-157">보안 주체의 자격 증명 변경</span><span class="sxs-lookup"><span data-stu-id="4a653-157">Change the credentials of the security principal</span></span>
 
-<span data-ttu-id="6dd15-158">사용 권한을 검토하고 암호를 정기적으로 업데이트하는 좋은 보안 방법입니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-158">It's a good security practice to review the permissions and update the password regularly.</span></span> <span data-ttu-id="6dd15-159">앱이 변경되면 보안 자격 증명을 관리하고 수정할 수도 있습니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-159">You may also want to manage and modify the security credentials as your app changes.</span></span> <span data-ttu-id="6dd15-160">예를 들어, 새 암호를 만들고 이전 암호를 제거하여 서비스 주체의 암호를 변경할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="6dd15-160">For example, we can change the password of the service principal by creating a new password and removing the old one.</span></span>
+<span data-ttu-id="4a653-158">사용 권한을 검토하고 암호를 정기적으로 업데이트하는 좋은 보안 방법입니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-158">It's a good security practice to review the permissions and update the password regularly.</span></span> <span data-ttu-id="4a653-159">앱이 변경되면 보안 자격 증명을 관리하고 수정할 수도 있습니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-159">You may also want to manage and modify the security credentials as your app changes.</span></span> <span data-ttu-id="4a653-160">예를 들어, 새 암호를 만들고 이전 암호를 제거하여 서비스 주체의 암호를 변경할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="4a653-160">For example, we can change the password of the service principal by creating a new password and removing the old one.</span></span>
 
-### <a name="add-a-new-password-for-the-service-principal"></a><span data-ttu-id="6dd15-161">서비스 주체의 새 암호 추가</span><span class="sxs-lookup"><span data-stu-id="6dd15-161">Add a new password for the service principal</span></span>
+### <a name="add-a-new-password-for-the-service-principal"></a><span data-ttu-id="4a653-161">서비스 주체의 새 암호 추가</span><span class="sxs-lookup"><span data-stu-id="4a653-161">Add a new password for the service principal</span></span>
 
 ```azurepowershell-interactive
-$password = [System.Web.Security.Membership]::GeneratePassword(16,3)
-New-AzureRmADSpCredential -ServicePrincipalName http://MyDemoWebApp -Password $password
+New-AzureRmADSpCredential -ServicePrincipalName http://MyDemoWebApp
 ```
 
 ```output
-StartDate           EndDate             KeyId                                Type
----------           -------             -----                                ----
-3/8/2017 5:58:24 PM 3/8/2018 5:58:24 PM 6f801c3e-6fcd-42b9-be8e-320b17ba1d36 Password
+Secret    : System.Security.SecureString
+StartDate : 11/16/2018 12:38:23 AM
+EndDate   : 11/16/2019 12:38:23 AM
+KeyId     : 6f801c3e-6fcd-42b9-be8e-320b17ba1d36
+Type      : Password
 ```
 
-### <a name="get-a-list-of-credentials-for-the-service-principal"></a><span data-ttu-id="6dd15-162">서비스 주체의 자격 증명 목록 가져오기</span><span class="sxs-lookup"><span data-stu-id="6dd15-162">Get a list of credentials for the service principal</span></span>
+### <a name="get-a-list-of-credentials-for-the-service-principal"></a><span data-ttu-id="4a653-162">서비스 주체의 자격 증명 목록 가져오기</span><span class="sxs-lookup"><span data-stu-id="4a653-162">Get a list of credentials for the service principal</span></span>
 
 ```azurepowershell-interactive
 Get-AzureRmADSpCredential -ServicePrincipalName http://MyDemoWebApp
@@ -202,7 +197,7 @@ StartDate           EndDate             KeyId                                Typ
 5/5/2016 4:55:27 PM 5/5/2017 4:55:27 PM ca9d4846-4972-4c70-b6f5-a4effa60b9bc Password
 ```
 
-### <a name="remove-the-old-password-from-the-service-principal"></a><span data-ttu-id="6dd15-163">서비스 주체에게서 이전 암호 제거</span><span class="sxs-lookup"><span data-stu-id="6dd15-163">Remove the old password from the service principal</span></span>
+### <a name="remove-the-old-password-from-the-service-principal"></a><span data-ttu-id="4a653-163">서비스 주체에게서 이전 암호 제거</span><span class="sxs-lookup"><span data-stu-id="4a653-163">Remove the old password from the service principal</span></span>
 
 ```azurepowershell-interactive
 Remove-AzureRmADSpCredential -ServicePrincipalName http://MyDemoWebApp -KeyId ca9d4846-4972-4c70-b6f5-a4effa60b9bc
@@ -215,7 +210,7 @@ service principal objectId '698138e7-d7b6-4738-a866-b4e3081a69e4'.
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 ```
 
-### <a name="verify-the-list-of-credentials-for-the-service-principal"></a><span data-ttu-id="6dd15-164">서비스 주체의 자격 증명 목록 확인</span><span class="sxs-lookup"><span data-stu-id="6dd15-164">Verify the list of credentials for the service principal</span></span>
+### <a name="verify-the-list-of-credentials-for-the-service-principal"></a><span data-ttu-id="4a653-164">서비스 주체의 자격 증명 목록 확인</span><span class="sxs-lookup"><span data-stu-id="4a653-164">Verify the list of credentials for the service principal</span></span>
 
 ```azurepowershell-interactive
 Get-AzureRmADSpCredential -ServicePrincipalName http://MyDemoWebApp
@@ -225,4 +220,19 @@ Get-AzureRmADSpCredential -ServicePrincipalName http://MyDemoWebApp
 StartDate           EndDate             KeyId                                Type
 ---------           -------             -----                                ----
 3/8/2017 5:58:24 PM 3/8/2018 5:58:24 PM 6f801c3e-6fcd-42b9-be8e-320b17ba1d36 Password
+```
+
+### <a name="get-information-about-the-service-principal"></a><span data-ttu-id="4a653-165">서비스 주체에 대한 정보 가져오기</span><span class="sxs-lookup"><span data-stu-id="4a653-165">Get information about the service principal</span></span>
+
+```azurepowershell-interactive
+$svcprincipal = Get-AzureRmADServicePrincipal -ObjectId 698138e7-d7b6-4738-a866-b4e3081a69e4
+$svcprincipal | Select-Object *
+```
+
+```output
+ServicePrincipalNames : {http://MyDemoWebApp, 00c01aaa-1603-49fc-b6df-b78c4e5138b4}
+ApplicationId         : 00c01aaa-1603-49fc-b6df-b78c4e5138b4
+DisplayName           : MyDemoWebApp
+Id                    : 698138e7-d7b6-4738-a866-b4e3081a69e4
+Type                  : ServicePrincipal
 ```
