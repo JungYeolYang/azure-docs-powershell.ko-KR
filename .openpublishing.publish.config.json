@@ -8,7 +8,7 @@
       "build_source_folder": ".",
       "build_output_subfolder": "azureps",
       "xref_query_tags":["/dotnet"],
-      "locale": "ja-JP",
+      "locale": "ko-KR",
       "monikers": [],
       "open_to_public_contributors": true,
       "type_mapping": {
@@ -36,14 +36,14 @@
     "live"
   ],
   "git_repository_branch_open_to_public_contributors": "live",
-  "git_repository_url_open_to_public_contributors": "https://github.com/azure/azure-docs-powershell.ja-JP",
+  "git_repository_url_open_to_public_contributors": "https://github.com/azure/azure-docs-powershell.ko-KR",
   "skip_source_output_uploading": false,
   "enable_incremental_build": true,
   "contribution_branch_mappings": {},
   "dependent_repositories": [
     {
       "path_to_root": "_themes",
-      "url": "https://github.com/Microsoft/templates.docs.msft.ja-JP",
+      "url": "https://github.com/Microsoft/templates.docs.msft.ko-KR",
       "branch": "master",
       "branch_mapping": {}
     },
