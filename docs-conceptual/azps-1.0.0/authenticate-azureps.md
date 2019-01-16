@@ -7,85 +7,88 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 10/29/2018
-ms.openlocfilehash: 8b085720aeabe26c1293ece193e050b31f99a693
-ms.sourcegitcommit: ae81b08a45d8729fc8d40156422e3eb2e94de8c7
+ms.openlocfilehash: 80c59a10666c6e3a01e6c33716fce40094fb14be
+ms.sourcegitcommit: b5635e291cdc324e66c936aa16c5772507fc78e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53786682"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055679"
 ---
-# <a name="sign-in-with-azure-powershell"></a><span data-ttu-id="161bf-103">Azure PowerShell로 로그인</span><span class="sxs-lookup"><span data-stu-id="161bf-103">Sign in with Azure PowerShell</span></span>
+# <a name="sign-in-with-azure-powershell"></a><span data-ttu-id="841e1-103">Azure PowerShell로 로그인</span><span class="sxs-lookup"><span data-stu-id="841e1-103">Sign in with Azure PowerShell</span></span>
 
-<span data-ttu-id="161bf-104">Azure PowerShell에서는 여러 인증 방법을 지원합니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-104">Azure PowerShell supports several authentication methods.</span></span> <span data-ttu-id="161bf-105">가장 간단하게 시작하는 방법은 명령줄에서 대화형으로 로그인하는 것입니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-105">The simplest way to get started is to sign in interactively at the command line.</span></span>
+<span data-ttu-id="841e1-104">Azure PowerShell에서는 여러 인증 방법을 지원합니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-104">Azure PowerShell supports several authentication methods.</span></span> <span data-ttu-id="841e1-105">시작하는 가장 쉬운 방법은 [Azure Cloud Shell](/azure/cloud-shell/overview)을 사용하는 것으로서, 자동으로 로그인합니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-105">The easiest way to get started is with [Azure Cloud Shell](/azure/cloud-shell/overview), which automatically logs you in.</span></span> <span data-ttu-id="841e1-106">로컬 설치에서는, 브라우저를 통해 대화형으로 로그인할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-106">With a local install, you can sign in interactively through your browser.</span></span> <span data-ttu-id="841e1-107">자동화 스크립트를 작성할 때 권장되는 방법은 필요한 권한이 있는 [서비스 주체](create-azure-service-principal-azureps.md)를 사용하는 것입니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-107">When writing scripts for automation, the recommended approach is to use a [service principal](create-azure-service-principal-azureps.md) with the necessary permissions.</span></span> <span data-ttu-id="841e1-108">사용 사례에 대해 로그인 권한을 가능한 한 많이 제한하면 Azure 리소스를 안전하게 유지할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-108">When you restrict sign-in permissions as much as possible for your use case, you help keep your Azure resources secure.</span></span>
 
-## <a name="sign-in-interactively"></a><span data-ttu-id="161bf-106">대화형으로 로그인</span><span class="sxs-lookup"><span data-stu-id="161bf-106">Sign in interactively</span></span>
+<span data-ttu-id="841e1-109">로그인한 후 명령은 기본 구독에 대해 실행됩니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-109">After signing in, commands are run against your default subscription.</span></span> <span data-ttu-id="841e1-110">세션에 대한 활성 구독을 변경하려면 [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet을 사용합니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-110">To change your active subscription for a session, use the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.</span></span> <span data-ttu-id="841e1-111">Azure PowerShell로 로그인할 때 사용되는 기본 구독을 변경하려면 [Set-AzDefault](/powershell/module/az.accounts/set-azdefault)를 사용합니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-111">To change the default subscription used when logging in with Azure PowerShell, use [Set-AzDefault](/powershell/module/az.accounts/set-azdefault).</span></span>
 
-<span data-ttu-id="161bf-107">대화형으로 로그인하려면 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용합니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-107">To sign in interactively, use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.</span></span>
+> [!IMPORTANT]
+>
+> <span data-ttu-id="841e1-112">로그인한 상태를 유지하는 한, 여러 PowerShell 세션에서 자격 증명을 공유할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-112">Your credentials are shared among multiple PowerShell sessions as long as you remain signed in.</span></span>
+> <span data-ttu-id="841e1-113">자세한 내용은 [영구 자격 증명](context-persistence.md)에 대한 아티클을 참조합니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-113">For more information, see the article on [Persistent Credentials](context-persistence.md).</span></span>
+
+## <a name="sign-in-interactively"></a><span data-ttu-id="841e1-114">대화형으로 로그인</span><span class="sxs-lookup"><span data-stu-id="841e1-114">Sign in interactively</span></span>
+
+<span data-ttu-id="841e1-115">대화형으로 로그인하려면 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용합니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-115">To sign in interactively, use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.</span></span>
 
 ```azurepowershell-interactive
 Connect-AzAccount
 ```
 
-<span data-ttu-id="161bf-108">실행되면 이 cmdlet은 토큰 문자열을 제공합니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-108">When run, this cmdlet will present a token string.</span></span> <span data-ttu-id="161bf-109">로그인 하려면 이 문자열을 복사하여 브라우저에서 https://microsoft.com/devicelogin에 붙여 넣습니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-109">To log in, copy this string and paste it into https://microsoft.com/devicelogin in a browser.</span></span> <span data-ttu-id="161bf-110">그러면 PowerShell 세션이 인증되어 Azure에 연결됩니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-110">Your PowerShell session will then be authenticated to connect to Azure.</span></span> <span data-ttu-id="161bf-111">이 인증은 현재 PowerShell 세션 동안 유지됩니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-111">This authentication lasts for the current PowerShell session.</span></span>
+<span data-ttu-id="841e1-116">실행되면 이 cmdlet은 토큰 문자열을 제공합니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-116">When run, this cmdlet will present a token string.</span></span> <span data-ttu-id="841e1-117">로그인 하려면 이 문자열을 복사하여 브라우저에서 https://microsoft.com/devicelogin에 붙여 넣습니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-117">To sign in, copy this string and paste it into https://microsoft.com/devicelogin in a browser.</span></span> <span data-ttu-id="841e1-118">그러면 PowerShell 세션이 인증되어 Azure에 연결됩니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-118">Your PowerShell session will be authenticated to connect to Azure.</span></span>
 
-> [!IMPORTANT]
->
-> <span data-ttu-id="161bf-112">로그인한 상태를 유지하는 한, 여러 PowerShell 세션에서 자격 증명을 공유할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-112">Your credentials are shared among multiple PowerShell sessions as long as you remain signed in.</span></span>
-> <span data-ttu-id="161bf-113">자세한 내용은 [영구 자격 증명](context-persistence.md)에 대한 아티클을 참조합니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-113">For more information, see the article on [Persistent Credentials](context-persistence.md).</span></span>
+## <a name="sign-in-with-credentials"></a><span data-ttu-id="841e1-119">자격 증명으로 로그인</span><span class="sxs-lookup"><span data-stu-id="841e1-119">Sign in with credentials</span></span>
 
-## <a name="sign-in-with-a-service-principal"></a><span data-ttu-id="161bf-114">서비스 주체를 사용하여 로그인</span><span class="sxs-lookup"><span data-stu-id="161bf-114">Sign in with a service principal</span></span>
+<span data-ttu-id="841e1-120">Azure에 연결할 권한이 있는 `PSCredential` 개체로 로그인할 수도 있습니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-120">You can also sign in with a `PSCredential` object authorized to connect to Azure.</span></span>
+<span data-ttu-id="841e1-121">자격 증명 개체를 가져오는 가장 쉬운 방법은 [Get-credential](/powershell/module/Microsoft.PowerShell.Security/Get-Credential) cmdlet입니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-121">The easiest way to get a credential object is with the [Get-Credential](/powershell/module/Microsoft.PowerShell.Security/Get-Credential) cmdlet.</span></span> <span data-ttu-id="841e1-122">이 cmdlet을 실행하면 사용자 이름/암호 자격 증명 쌍을 묻는 메시지가 표시됩니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-122">When run, this cmdlet will prompt you for a username/password credential pair.</span></span>
 
-<span data-ttu-id="161bf-115">서비스 주체는 비대화형 Azure 계정입니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-115">Service principals are non-interactive Azure accounts.</span></span> <span data-ttu-id="161bf-116">다른 사용자 계정과 마찬가지로 해당 권한은 Azure Active Directory를 사용하여 관리됩니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-116">Like other user accounts, their permissions are managed with Azure Active Directory.</span></span> <span data-ttu-id="161bf-117">서비스 주체에 필요한 권한만 부여하여 자동화 스크립트 보안을 유지할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-117">By granting a service principal only the permissions it needs, your automation scripts stay secure.</span></span>
+> [!Note]
+> <span data-ttu-id="841e1-123">이 접근 방식은 Microsoft 계정 또는 2단계 인증을 사용하는 계정에서는 작동하지 않습니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-123">This approach doesn't work with Microsoft accounts or accounts that have two-factor authentication enabled.</span></span>
 
-<span data-ttu-id="161bf-118">Azure PowerShell에 사용할 서비스 주체를 생성하는 방법을 보려면 [Azure PowerShell을 사용하여 Azure 서비스 주체 만들기](create-azure-service-principal-azureps.md)를 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="161bf-118">To learn how to create a service principal for use with Azure PowerShell, see [Create an Azure service principal with Azure PowerShell](create-azure-service-principal-azureps.md).</span></span>
+```azurepowershell-interactive
+$creds = Get-Credential
+Connect-AzAccount -Credential $creds
+```
 
-<span data-ttu-id="161bf-119">서비스 주체로 로그인하려면 `Connect-AzAccount` cmdlet `-ServicePrincipal`인수를 사용합니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-119">To sign in with a service principal, use the `-ServicePrincipal` argument with the `Connect-AzAccount` cmdlet.</span></span> <span data-ttu-id="161bf-120">또한 서비스 주체의 애플리케이션 ID, 로그인 자격 증명 및 서비스 주체와 연결된 테넌트 ID가 필요합니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-120">You'll also need the service principal's application ID, sign-in credentials, and the tenant ID associate with the service principal.</span></span> <span data-ttu-id="161bf-121">서비스 주체의 자격 증명을 적절한 개체로 가져오려면 [Get-credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet을 사용합니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-121">To get the service principal's credentials as the appropriate object, use the [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet.</span></span> <span data-ttu-id="161bf-122">이 cmdlet은 서비스 주체 사용자 ID와 암호에 대한 메시지를 표시합니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-122">This cmdlet will present a prompt for the service principal user ID and password.</span></span>
+## <a name="sign-in-with-a-service-principal"></a><span data-ttu-id="841e1-124">서비스 주체를 사용하여 로그인</span><span class="sxs-lookup"><span data-stu-id="841e1-124">Sign in with a service principal</span></span>
+
+<span data-ttu-id="841e1-125">서비스 주체는 비대화형 Azure 계정입니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-125">Service principals are non-interactive Azure accounts.</span></span> <span data-ttu-id="841e1-126">다른 사용자 계정과 마찬가지로 해당 권한은 Azure Active Directory를 사용하여 관리됩니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-126">Like other user accounts, their permissions are managed with Azure Active Directory.</span></span> <span data-ttu-id="841e1-127">서비스 주체에 필요한 권한만 부여하여 자동화 스크립트 보안을 유지할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-127">By granting a service principal only the permissions it needs, your automation scripts stay secure.</span></span>
+
+<span data-ttu-id="841e1-128">Azure PowerShell에 사용할 서비스 주체를 생성하는 방법을 보려면 [Azure PowerShell을 사용하여 Azure 서비스 주체 만들기](create-azure-service-principal-azureps.md)를 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="841e1-128">To learn how to create a service principal for use with Azure PowerShell, see [Create an Azure service principal with Azure PowerShell](create-azure-service-principal-azureps.md).</span></span>
+
+<span data-ttu-id="841e1-129">서비스 주체로 로그인하려면 `Connect-AzAccount` cmdlet `-ServicePrincipal`인수를 사용합니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-129">To sign in with a service principal, use the `-ServicePrincipal` argument with the `Connect-AzAccount` cmdlet.</span></span> <span data-ttu-id="841e1-130">또한 서비스 주체의 애플리케이션 ID, 로그인 자격 증명 및 서비스 주체와 연결된 테넌트 ID가 필요합니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-130">You'll also need the service principal's application ID, sign-in credentials, and the tenant ID associate with the service principal.</span></span> <span data-ttu-id="841e1-131">서비스 주체의 자격 증명을 적절한 개체로 가져오려면 [Get-credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet을 사용합니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-131">To get the service principal's credentials as the appropriate object, use the [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet.</span></span> <span data-ttu-id="841e1-132">이 cmdlet은 서비스 주체 사용자 ID와 암호에 대한 메시지를 표시합니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-132">This cmdlet will present a prompt for the service principal user ID and password.</span></span>
 
 ```azurepowershell-interactive
 $pscredential = Get-Credential
 Connect-AzAccount -ServicePrincipal -ApplicationId  "http://my-app" -Credential $pscredential -TenantId $tenantid
 ```
 
-## <a name="sign-in-using-an-azure-managed-service-identity"></a><span data-ttu-id="161bf-123">Azure 관리 서비스 ID를 사용하여 로그인</span><span class="sxs-lookup"><span data-stu-id="161bf-123">Sign in using an Azure Managed Service Identity</span></span>
+## <a name="sign-in-using-a-managed-identity"></a><span data-ttu-id="841e1-133">관리 ID를 사용하여 로그인</span><span class="sxs-lookup"><span data-stu-id="841e1-133">Sign in using a managed identity</span></span> 
 
-<span data-ttu-id="161bf-124">Azure 리소스에 대한 관리 ID는 Azure Active Directory의 기능입니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-124">Managed identities for Azure resources is a feature of Azure Active Directory.</span></span> <span data-ttu-id="161bf-125">로그인에 관리 ID 서비스 주체를 사용할 수 있으며, 다른 리소스에 액세스하려면 앱 전용 액세스 토큰이 필요합니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-125">You can use a managed identity service principal for sign-in, and acquire an app-only access token to access other resources.</span></span> <span data-ttu-id="161bf-126">관리 ID는 Azure 클라우드에서 실행 중인 가상 머신에서만 사용할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-126">Managed identities are only available on virtual machines running in an Azure cloud.</span></span>
+<span data-ttu-id="841e1-134">관리 ID는 Azure Active Directory의 기능입니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-134">Managed identities are a feature of Azure Active Directory.</span></span> <span data-ttu-id="841e1-135">관리 ID는 Azure에서 실행되는 리소스에 할당된 서비스 주체입니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-135">Managed identities are service principals assigned to resources that run in Azure.</span></span> <span data-ttu-id="841e1-136">로그인에 관리 ID 서비스 주체를 사용할 수 있으며, 다른 리소스에 액세스하려면 앱 전용 액세스 토큰이 필요합니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-136">You can use a managed identity service principal for sign-in, and acquire an app-only access token to access other resources.</span></span> <span data-ttu-id="841e1-137">관리 ID는 Azure 클라우드에서 실행되는 리소스에서만 사용할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-137">Managed identities are only available on resources running in an Azure cloud.</span></span>
 
-<span data-ttu-id="161bf-127">Azure 리소스의 관리 ID에 대한 자세한 내용은 [Azure VM에서 Azure 리소스에 대한 관리 ID를 사용하여 액세스 토큰을 획득하는 방법](/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token)을 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="161bf-127">For more information about managed identities for Azure resources, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token).</span></span>
+<span data-ttu-id="841e1-138">Azure 리소스의 관리 ID에 대한 자세한 내용은 [Azure VM에서 Azure 리소스에 대한 관리 ID를 사용하여 액세스 토큰을 획득하는 방법](/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token)을 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="841e1-138">To learn more about managed identities for Azure resources, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token).</span></span>
 
-## <a name="sign-in-as-a-cloud-solution-provider-csp"></a><span data-ttu-id="161bf-128">CSP(클라우드 솔루션 공급자)로 로그인</span><span class="sxs-lookup"><span data-stu-id="161bf-128">Sign in as a Cloud Solution Provider (CSP)</span></span>
+## <a name="sign-in-with-a-non-default-tenant-or-as-a-cloud-solution-provider-csp"></a><span data-ttu-id="841e1-139">기본이 아닌 테넌트를 사용하여 로그인하거나 클라우드 솔루션 공급자(CSP)로 로그인</span><span class="sxs-lookup"><span data-stu-id="841e1-139">Sign in with a non-default tenant or as a Cloud Solution Provider (CSP)</span></span>
 
-<span data-ttu-id="161bf-129">[CSP(클라우드 솔루션 공급자)](https://azure.microsoft.com/en-us/offers/ms-azr-0145p/) 로그인에는 `-TenantId`를 사용해야 합니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-129">A [Cloud Solution Provider (CSP)](https://azure.microsoft.com/en-us/offers/ms-azr-0145p/) sign-in requires the use of `-TenantId`.</span></span> <span data-ttu-id="161bf-130">일반적으로 이 매개 변수를 테넌트 ID 또는 도메인 이름으로 제공할 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-130">Normally, this parameter can be provided as either a tenant ID or a domain name.</span></span> <span data-ttu-id="161bf-131">그러나 CSP 로그인의 경우 **테넌트 ID**를 제공해야 합니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-131">However, for CSP sign-in, it must be provided a **tenant ID**.</span></span>
+<span data-ttu-id="841e1-140">계정이 둘 이상의 테넌트와 연결되어 있는 경우 로그인은 연결 시 `-TenantId` 매개 변수를 사용해야 합니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-140">If your account is associated with more than one tenant, sign-in requires the use of the `-TenantId` parameter when connecting.</span></span> <span data-ttu-id="841e1-141">이 매개 변수는 다른 로그인 메서드를 사용하여 작동 합니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-141">This parameter will work with any other sign-in method.</span></span> <span data-ttu-id="841e1-142">로그인할 때 이 매개 변수 값은 테넌트의 Azure 개체 ID(테넌트 ID) 또는 테넌트의 정규화된 도메인 이름이 될 수 있습니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-142">When logging in, this parameter value can either be the Azure object ID of the tenant (Tenant ID) or the fully qualified domain name of the tenant.</span></span>
+
+<span data-ttu-id="841e1-143">[클라우드 솔루션 공급자(CSP)](https://azure.microsoft.com/en-us/offers/ms-azr-0145p/)의 경우 `-TenantId` 값은 **반드시** 테넌트 ID여야 합니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-143">If you're a [Cloud Solution Provider (CSP)](https://azure.microsoft.com/en-us/offers/ms-azr-0145p/), the `-TenantId` value **must** be a tenant ID.</span></span>
 
 ```azurepowershell-interactive
 Connect-AzAccount -TenantId 'xxxx-xxxx-xxxx-xxxx'
 ```
 
-## <a name="sign-in-to-another-cloud"></a><span data-ttu-id="161bf-132">다른 클라우드로 로그인</span><span class="sxs-lookup"><span data-stu-id="161bf-132">Sign in to another Cloud</span></span>
+## <a name="sign-in-to-another-cloud"></a><span data-ttu-id="841e1-144">다른 클라우드로 로그인</span><span class="sxs-lookup"><span data-stu-id="841e1-144">Sign in to another Cloud</span></span>
 
-<span data-ttu-id="161bf-133">Azure 클라우드 서비스는 지역 데이터 처리 규정을 준수하는 환경을 제공합니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-133">Azure cloud services offer environments compliant with regional data-handling regulations.</span></span>
-<span data-ttu-id="161bf-134">지역별 클라우드의 계정에 대해 로그인할 때 `-Environment` 인수를 사용해서 환경을 설정합니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-134">For accounts in a regional cloud, set the environment when you sign in with the `-Environment` argument.</span></span>
-<span data-ttu-id="161bf-135">예를 들어 계정이 중국 클라우드에 있는 경우:</span><span class="sxs-lookup"><span data-stu-id="161bf-135">For example, if your account is in the China cloud:</span></span>
+<span data-ttu-id="841e1-145">Azure 클라우드 서비스는 지역 데이터 처리법을 준수하는 환경을 제공합니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-145">Azure cloud services offer environments compliant with regional data-handling laws.</span></span>
+<span data-ttu-id="841e1-146">지역별 클라우드의 계정에 대해 로그인할 때 `-Environment` 인수를 사용해서 환경을 설정합니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-146">For accounts in a regional cloud, set the environment when you sign in with the `-Environment` argument.</span></span>
+<span data-ttu-id="841e1-147">예를 들어 계정이 중국 클라우드에 있는 경우:</span><span class="sxs-lookup"><span data-stu-id="841e1-147">For example, if your account is in the China cloud:</span></span>
 
 ```azurepowershell-interactive
 Connect-AzAccount -Environment AzureChinaCloud
 ```
 
-<span data-ttu-id="161bf-136">다음 명령은 사용 가능한 환경 목록을 가져옵니다.</span><span class="sxs-lookup"><span data-stu-id="161bf-136">The following command gets a list of available environments:</span></span>
+<span data-ttu-id="841e1-148">다음 명령은 사용 가능한 환경 목록을 가져옵니다.</span><span class="sxs-lookup"><span data-stu-id="841e1-148">The following command gets a list of available environments:</span></span>
 
 ```azurepowershell-interactive
 Get-AzEnvironment | Select-Object Name
 ```
-
-## <a name="learn-more-about-managing-azure-role-based-access"></a><span data-ttu-id="161bf-137">Azure 역할 기반 액세스를 관리하는 방법에 대해 알아보기</span><span class="sxs-lookup"><span data-stu-id="161bf-137">Learn more about managing Azure role-based access</span></span>
-
-<span data-ttu-id="161bf-138">Azure에서 인증 및 구독 관리에 대한 자세한 내용은 [계정, 구독 및 관리 역할 관리](/azure/active-directory/role-based-access-control-configure)를 참조하세요.</span><span class="sxs-lookup"><span data-stu-id="161bf-138">For more information about authentication and subscription management in Azure, see [Manage Accounts, Subscriptions, and Administrative Roles](/azure/active-directory/role-based-access-control-configure).</span></span>
-
-<span data-ttu-id="161bf-139">역할 관리를 위한 Azure PowerShell cmdlet:</span><span class="sxs-lookup"><span data-stu-id="161bf-139">Azure PowerShell cmdlets for role management:</span></span>
-
-* [<span data-ttu-id="161bf-140">Get-AzRoleAssignment</span><span class="sxs-lookup"><span data-stu-id="161bf-140">Get-AzRoleAssignment</span></span>](/powershell/module/az.Resources/Get-azRoleAssignment)
-* [<span data-ttu-id="161bf-141">Get-AzRoleDefinition</span><span class="sxs-lookup"><span data-stu-id="161bf-141">Get-AzRoleDefinition</span></span>](/powershell/module/az.Resources/Get-azRoleDefinition)
-* [<span data-ttu-id="161bf-142">New-AzRoleAssignment</span><span class="sxs-lookup"><span data-stu-id="161bf-142">New-AzRoleAssignment</span></span>](/powershell/module/az.Resources/New-azRoleAssignment)
-* [<span data-ttu-id="161bf-143">New-AzRoleDefinition</span><span class="sxs-lookup"><span data-stu-id="161bf-143">New-AzRoleDefinition</span></span>](/powershell/module/az.Resources/New-azRoleDefinition)
-* [<span data-ttu-id="161bf-144">Remove-AzRoleAssignment</span><span class="sxs-lookup"><span data-stu-id="161bf-144">Remove-AzRoleAssignment</span></span>](/powershell/module/az.Resources/Remove-azRoleAssignment)
-* [<span data-ttu-id="161bf-145">Remove-AzRoleDefinition</span><span class="sxs-lookup"><span data-stu-id="161bf-145">Remove-AzRoleDefinition</span></span>](/powershell/module/az.Resources/Remove-azRoleDefinition)
-* [<span data-ttu-id="161bf-146">Set-AzRoleDefinition</span><span class="sxs-lookup"><span data-stu-id="161bf-146">Set-AzRoleDefinition</span></span>](/powershell/module/az.Resources/Set-azRoleDefinition)
