@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.workload: ''
 ms.date: 2/20/2018
 ms.openlocfilehash: 1a9d38cd60ba596c085e5ee9f8d815e238362b1f
-ms.sourcegitcommit: 087c588169786c005a3c177624fb3ac6c8870125
+ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53218105"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56153845"
 ---
 # <a name="release-notes"></a>릴리스 정보
 
@@ -667,7 +667,7 @@ Update-Module -Name AzureRM
   - 새 Cmdlet Update-AzureRmPowerBIEmbeddedCapacity - PowerBI Embedded Capacity의 인스턴스를 수정합니다.
 * 프로필
   - USGovernmentActiveDirectoryEndpoint가 https://login.microsoftonline.us/ 로 업데이트됨
-    - Azure Government 엔드포인트 매핑에 대한 보다 자세한 내용은 다음을 참조하세요. https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-developer-guide#endpoint-mapping
+    - Azure Government 끝점 매핑에 대한 보다 자세한 내용은 다음을 참조하세요. https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-developer-guide#endpoint-mapping
     - cmdlet에 대한 -AsJob 지원이 추가됨. 선택된 cmdlet을 사용하여 백그라운드에서 실행하고 작업을 반환하여 진행률 추적 및 제어
     - -AsJob 매개 변수가 Get-AzureRmSubscription cmdlet에 추가됨
 * RecoveryServices.Backup

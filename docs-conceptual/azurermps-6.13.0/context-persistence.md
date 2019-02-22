@@ -8,11 +8,11 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/09/2018
 ms.openlocfilehash: a07b5fe8cd532f99038d7f0ce10b3b891c896da1
-ms.sourcegitcommit: 087c588169786c005a3c177624fb3ac6c8870125
+ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53216435"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56153866"
 ---
 # <a name="persist-user-credentials-across-powershell-sessions"></a>PowerShell 세션간에 사용자 자격 증명 유지
 

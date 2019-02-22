@@ -8,12 +8,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 76d690f3a7206857861e1ee26d8284de419dc70a
-ms.sourcegitcommit: cb1fd248920d7efca67bd6c738a3b47206df7890
+ms.openlocfilehash: aa5f96fa57625903b0622f5e3669170d8975d06b
+ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39025212"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56153677"
 ---
 # <a name="create-an-azure-service-principal-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 서비스 주체 만들기
 
@@ -24,24 +24,24 @@ Azure PowerShell을 사용하여 앱 또는 서비스를 관리하려는 경우 
 
 ## <a name="what-is-a-service-principal"></a>'서비스 주체'란?
 
-Azure 서비스 주체는 특정 Azure 리소스에 액세스하기 위해 사용자가 만든 앱, 서비스 및 자동화 도구에서 사용하는 보안 ID입니다. 특정한 역할이 있는 '사용자 ID'(사용자 이름과 암호 또는 인증서)이며 엄격하게 제어됩니다. 일반 사용자 ID와 달리 특정 작업만을 수행해야 합니다. 해당 관리 작업을 수행하는 데 필요한 최소 사용 권한 수준을 부여하는 경우 보안이 향상됩니다.
+Azure 서비스 주체는 특정 Azure 리소스에 액세스하기 위해 사용자가 만든 앱과 서비스, 자동화 도구에서 사용하는 보안 ID입니다. 특정한 역할이 있는 '사용자 ID'(사용자 이름과 암호 또는 인증서)이며 엄격하게 제어됩니다. 일반 사용자 ID와 달리 특정 작업만을 수행해야 합니다. 해당 관리 작업을 수행하는 데 필요한 최소 사용 권한 수준을 부여하는 경우 보안이 향상됩니다.
 
 ## <a name="verify-your-own-permission-level"></a>고유한 사용 권한 수준 확인
 
 먼저 Azure Active Directory와 Azure 구독에 대한 충분한 권한이 있어야 합니다. 특히, Active Directory에서 앱을 만들고 서비스 주체에 역할을 할당할 수 있어야 합니다.
 
-계정에 적절한 사용 권한이 있는지를 확인하는 가장 쉬운 방법은 포털을 통하는 것입니다. [포털에서 필요한 사용 권한 확인](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)을 참조하세요.
+계정에 적절한 사용 권한이 있는지를 확인하는 가장 쉬운 방법은 포털을 통하는 것입니다. [필요한 사용 권한 확인](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)을 참조하세요.
 
 ## <a name="create-a-service-principal-for-your-app"></a>앱의 서비스 주체 만들기
 
 Azure 계정에 로그인하면 서비스 주체를 만들 수 있습니다. 다음 방법 중 하나로 배포된 앱을 식별해야 합니다.
 
-* 다음 예제에서 "MyDemoWebApp"와 같은 배포된 앱의 고유 이름 또는
+* 다음 예제처럼 "MyDemoWebApp"와 같은 배포된 앱의 고유 이름
 * 애플리케이션 ID, 배포된 앱, 서비스 또는 개체와 관련된 고유 GUID
 
 ### <a name="get-information-about-your-application"></a>애플리케이션에 대한 정보 가져오기
 
-`Get-AzureRmADApplication` cmdlet을 사용하여 응용 프로그램에 대한 정보를 검색할 수 있습니다.
+`Get-AzureRmADApplication` cmdlet을 사용하여 애플리케이션에 대한 정보를 검색할 수 있습니다.
 
 ```azurepowershell-interactive
 Get-AzureRmADApplication -DisplayNameStartWith MyDemoWebApp
@@ -125,9 +125,9 @@ Azure PowerShell은 역할 할당을 관리하는 다음과 같은 cmdlet을 제
 * [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment)
 
 서비스 주체의 기본 역할은 **참가자**입니다. 광범위한 사용 권한을 고려하면 Azure 서비스와 앱의 상호 작용의 범위에 따라 최상의 선택이 아닐 수도 있습니다.
-**판독기** 역할은 더 제한적이며 읽기 전용 앱의 경우에 좋은 선택이 될 수 있습니다. 역할 관련 사용 권한에 대한 세부 정보를 보거나 Azure Portal을 통해 사용자 지정 레코드를 만들 수 있습니다.
+**읽기 권한자** 역할은 더 제한적이며 읽기 전용 앱의 경우에 좋은 선택이 될 수 있습니다. 역할 관련 사용 권한에 대한 세부 정보를 보거나 Azure Portal을 통해 사용자 지정 레코드를 만들 수 있습니다.
 
-이 예제에서는 **판독기** 역할을 이전 예제에 추가하고 **참가자** 역할을 삭제합니다.
+이 예제에서는 **읽기 권한자** 역할을 이전 예제에 추가하고 **참가자** 역할을 삭제합니다.
 
 ```azurepowershell-interactive
 New-AzureRmRoleAssignment -ResourceGroupName myRG -ObjectId 698138e7-d7b6-4738-a866-b4e3081a69e4 -RoleDefinitionName Reader
@@ -174,7 +174,7 @@ ObjectType         : ServicePrincipal
 
 ## <a name="change-the-credentials-of-the-security-principal"></a>보안 주체의 자격 증명 변경
 
-사용 권한을 검토하고 암호를 정기적으로 업데이트하는 좋은 보안 방법입니다. 앱이 변경되면 보안 자격 증명을 관리하고 수정할 수도 있습니다. 예를 들어, 새 암호를 만들고 이전 암호를 제거하여 서비스 주체의 암호를 변경할 수 있습니다.
+보안을 향상시키려면 사용 권한을 검토하고 암호를 정기적으로 업데이트하는 것이 좋습니다. 앱이 변경될 때 보안 자격 증명을 관리하고 수정할 수도 있습니다. 예를 들어, 새 암호를 만들고 이전 암호를 제거하여 서비스 주체의 암호를 변경할 수 있습니다.
 
 ### <a name="add-a-new-password-for-the-service-principal"></a>서비스 주체의 새 암호 추가
 

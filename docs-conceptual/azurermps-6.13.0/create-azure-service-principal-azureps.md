@@ -9,18 +9,18 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/09/2018
 ms.openlocfilehash: 2db1ada32e5a9285c27ec3f569b622c9c33a06b0
-ms.sourcegitcommit: 087c588169786c005a3c177624fb3ac6c8870125
+ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53216146"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56144552"
 ---
 # <a name="create-an-azure-service-principal-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 서비스 주체 만들기
 
 Azure PowerShell을 사용하여 앱 또는 서비스를 관리하려는 경우 소유한 자격 증명 대신 AAD(Azure Active Directory) 서비스 주체에서 실행해야 합니다. 이 문서에서는 Azure PowerShell을 사용하여 보안 주체를 만드는 과정을 설명합니다.
 
 > [!NOTE]
-> Azure Portal을 통해 서비스 주체를 만들 수도 있습니다. 자세한 내용은 [포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 응용 프로그램 및 서비스 주체 만들기](/azure/azure-resource-manager/resource-group-create-service-principal-portal)를 참조하세요.
+> Azure Portal을 통해 서비스 주체를 만들 수도 있습니다. 자세한 내용은 [포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 애플리케이션 및 서비스 주체 만들기](/azure/azure-resource-manager/resource-group-create-service-principal-portal)를 참조하세요.
 
 ## <a name="what-is-a-service-principal"></a>'서비스 주체'란?
 
@@ -37,11 +37,11 @@ Azure 서비스 주체는 특정 Azure 리소스에 액세스하기 위해 사�
 Azure 계정에 로그인하면 서비스 주체를 만들 수 있습니다. 다음 방법 중 하나로 배포된 앱을 식별해야 합니다.
 
 * 다음 예제처럼 "MyDemoWebApp"와 같은 배포된 앱의 고유 이름
-* 배포된 앱이나 서비스, 개체와 관련된 고유 GUID인 응용 프로그램 ID
+* 애플리케이션 ID, 배포된 앱, 서비스 또는 개체와 관련된 고유 GUID
 
 ### <a name="get-information-about-your-application"></a>애플리케이션에 대한 정보 가져오기
 
-`Get-AzureRmADApplication` cmdlet을 사용하여 응용 프로그램에 대한 정보를 가져올 수 있습니다.
+`Get-AzureRmADApplication` cmdlet을 사용하여 애플리케이션에 대한 정보를 가져올 수 있습니다.
 
 ```azurepowershell-interactive
 Get-AzureRmADApplication -DisplayNameStartWith MyDemoWebApp
