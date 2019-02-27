@@ -1,3 +1,19 @@
+---
+title: Microsoft Azure PowerShell 5.0.0의 주요 변경 내용
+description: 이 마이그레이션 가이드에는 Azure PowerShell 버전 5 릴리스에 이루어진 호환성이 손상되는 변경의 목록이 포함되어 있습니다.
+author: sptramer
+ms.author: sttramer
+manager: carmonm
+ms.devlang: powershell
+ms.topic: conceptual
+ms.date: 05/01/2018
+ms.openlocfilehash: b4cbeb1b523664fb49c4640eaafd56e3b843ebaa
+ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56144557"
+---
 # <a name="breaking-changes-for-microsoft-azure-powershell-500"></a>Microsoft Azure PowerShell 5.0.0의 주요 변경 내용
 
 이 문서는 Microsoft Azure PowerShell cmdlet의 소비자를 위한 주요 변경 내용 알림 및 마이그레이션 가이드 역할을 합니다. 각 섹션에서는 주요 변경에 대한 원동력과 최소 저항의 마이그레이션 경로에 대해 설명합니다. 심층적인 맥락에서는 각 변경 내용과 관련된 끌어오기 요청을 참조하세요.
@@ -18,7 +34,7 @@
 ### <a name="new-azurermapimanagementbackendproxy"></a>**New-AzureRmApiManagementBackendProxy**
 - 매개 변수 "UserName" 및 "Password"가 PSCredential에 대해 대체됨
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureRmApiManagementBackendProxy [other required parameters] -UserName "plain-text string" -Password "plain-text string"
 
@@ -29,7 +45,7 @@ New-AzureRmApiManagementBackendProxy [other required parameters] -Credential $PS
 ### <a name="new-azurermapimanagementuser"></a>**New-AzureRmApiManagementUser**
 - 매개 변수 "Password"가 SecureString에 대해 대체됨
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureRmApiManagementUser [other required parameters] -Password "plain-text string"
 
@@ -40,7 +56,7 @@ New-AzureRmApiManagementUser [other required parameters] -Password $SecureString
 ### <a name="set-azurermapimanagementuser"></a>**Set-AzureRmApiManagementUser**
 - 매개 변수 "Password"가 SecureString에 대해 대체됨
 
-```powershell
+```powershell-interactive
 # Old
 Set-AzureRmApiManagementUser [other required parameters] -Password "plain-text string"
 
@@ -53,7 +69,7 @@ Set-AzureRmApiManagementUser [other required parameters] -Password $SecureString
 ### <a name="new-azurebatchcertificate"></a>**New-AzureBatchCertificate**
 - 매개 변수 `Password`가 보안 문자열에 대해 대체됨
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureBatchCertificate [other required parameters] -Password "plain-text string"
 
@@ -64,7 +80,7 @@ New-AzureBatchCertificate [other required parameters] -Password $SecureStringVar
 ### <a name="new-azurebatchcomputenodeuser"></a>**New-AzureBatchComputeNodeUser**
 - 매개 변수 `Password`가 보안 문자열에 대해 대체됨
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureBatchComputeNodeUser [other required parameters] -Password "plain-text string"
 
@@ -75,7 +91,7 @@ New-AzureBatchComputeNodeUser [other required parameters] -Password $SecureStrin
 ### <a name="set-azurermbatchcomputenodeuser"></a>**Set-AzureRmBatchComputeNodeUser**
 - 매개 변수 `Password`가 보안 문자열에 대해 대체됨
 
-```powershell
+```powershell-interactive
 # Old
 Set-AzureRmBatchComputeNodeUser [other required parameters] -Password "plain-text string"
 
@@ -86,7 +102,7 @@ Set-AzureRmBatchComputeNodeUser [other required parameters] -Password $SecureStr
 ### <a name="new-azurebatchtask"></a>**New-AzureBatchTask**
  - `RunElevated` 스위치가 제거되고 `UserIdentity`로 대체되었습니다.
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureBatchTask -Id $taskId1 -JobId $jobId -CommandLine "cmd /c echo hello" -RunElevated $TRUE
 
@@ -102,7 +118,7 @@ New-AzureBatchTask -Id $taskId1 -JobId $jobId -CommandLine "cmd /c echo hello" -
 
 - `PSMultiInstanceSettings` 생성자는 더 이상 필수 `numberOfInstances` 매개 변수를 사용하지 않고 대신 필수 `coordinationCommandLine` 매개 변수를 사용합니다.
 
-```powershell
+```powershell-interactive
 # Old
 $settings = New-Object Microsoft.Azure.Commands.Batch.Models.PSMultiInstanceSettings -ArgumentList @(2)
 $settings.CoordinationCommandLine = "cmd /c echo hello"
@@ -116,7 +132,7 @@ New-AzureBatchTask [other parameters] -MultiInstanceSettings $settings
 ### <a name="get-azurebatchtask"></a>**Get-AzureBatchTask**
  - `PSCloudTask`에서 `RunElevated` 속성이 제거되었습니다. `UserIdentity`를 대체하기 위해 `RunElevated` 속성이 추가되었습니다.
 
-```powershell
+```powershell-interactive
 # Old
 $task = Get-AzureBatchTask [parameters]
 $task.RunElevated
@@ -132,7 +148,7 @@ $task.UserIdentity.AutoUser.ElevationLevel
 
 - `PSExitConditions`에서 `SchedulingError` 속성의 이름이 `PreProcessingError`로 변경되었습니다.
 
-```powershell
+```powershell-interactive
 # Old
 $task = Get-AzureBatchTask [parameters]
 $task.ExitConditions.SchedulingError
@@ -148,7 +164,7 @@ $task.ExitConditions.PreProcessingError
   - 작업 실패가 있을 때마다 `FailureInformation`이 반환됩니다. 여기에는 이전의 모든 예약 오류 사례는 물론, 0이 아닌 작업 종료 코드 및 새 출력 파일 기능의 파일 업로드 오류가 포함됩니다.
   - 이것은 이전과 동일하게 구성되므로 이 형식을 사용할 때는 코드 변경 내용이 필요하지 않습니다.
 
-```powershell
+```powershell-interactive
 # Old
 $task = Get-AzureBatchTask [parameters]
 $task.ExecutionInformation.SchedulingError
@@ -158,13 +174,13 @@ $task = Get-AzureBatchTask [parameters]
 $task.ExecutionInformation.FailureInformation
 ```
 
-또한 Get-AzureBatchPool, Get-AzureBatchSubtask 및 Get-AzureBatchJobPreparationAndReleaseTaskStatus에 영향을 줍니다.
+또한 이것은 다음에 영향을 줍니다. Get-AzureBatchPool, Get-AzureBatchSubtask, Get-AzureBatchJobPreparationAndReleaseTaskStatus
 
 ### <a name="new-azurebatchpool"></a>**New-AzureBatchPool**
  - `TargetDedicated`가 제거되고 `TargetDedicatedComputeNodes` 및 `TargetLowPriorityComputeNodes`로 대체되었습니다.
  - `TargetDedicatedComputeNodes`에 `TargetDedicated` 별칭이 있습니다.
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureBatchPool [other parameters] [-TargetDedicated <Int32>]
 
@@ -172,12 +188,12 @@ New-AzureBatchPool [other parameters] [-TargetDedicated <Int32>]
 New-AzureBatchPool [other parameters] [-TargetDedicatedComputeNodes <Int32>] [-TargetLowPriorityComputeNodes <Int32>]
 ```
 
-또한 Start-AzureBatchPoolResize에 영향을 줍니다.
+또한 이것은 다음에 영향을 줍니다. Start-AzureBatchPoolResize
 
 ### <a name="get-azurebatchpool"></a>**Get-AzureBatchPool**
  - `PSCloudPool`에서 `TargetDedicated` 및 `CurrentDedicated` 속성 이름이 `TargetDedicatedComputeNodes` 및 `CurrentDedicatedComputeNodes`로 변경되었습니다.
 
-```powershell
+```powershell-interactive
 # Old
 $pool = Get-AzureBatchPool [parameters]
 $pool.TargetDedicated
@@ -193,7 +209,7 @@ $pool.CurrentDedicatedComputeNodes
 
 - `PSCloudPool`에서 `ResizeError`의 이름이 `ResizeErrors`로 변경되었고 이제 컬렉션입니다.
 
-```powershell
+```powershell-interactive
 # Old
 $pool = Get-AzureBatchPool [parameters]
 $pool.ResizeError
@@ -206,7 +222,7 @@ $pool.ResizeErrors[0]
 ### <a name="new-azurebatchjob"></a>**New-AzureBatchJob**
 - `PSPoolSpecification`에서 `TargetDedicated` 속성의 이름이 `TargetDedicatedComputeNodes`로 변경되었습니다.
 
-```powershell
+```powershell-interactive
 # Old
 $poolInfo = New-Object Microsoft.Azure.Commands.Batch.Models.PSPoolInformation
 $poolInfo.AutoPoolSpecification = New-Object Microsoft.Azure.Commands.Batch.Models.PSAutoPoolSpecification
@@ -226,7 +242,7 @@ New-AzureBatchJob [other parameters] -PoolInformation $poolInfo
  - `Name`이 제거되고 `Path`로 대체되었습니다.
  - `Path`에 `Name` 별칭이 있습니다.
 
-```powershell
+```powershell-interactive
 # Old
 Get-AzureBatchNodeFile [other parameters] [[-Name] <String>]
 
@@ -234,13 +250,13 @@ Get-AzureBatchNodeFile [other parameters] [[-Name] <String>]
 Get-AzureBatchNodeFile [other parameters] [[-Path] <String>]
 ```
 
-또한 Get-AzureBatchNodeFileContent, Remove-AzureBatchNodeFile에도 영향을 줍니다.
+또한 이것은 다음에 영향을 줍니다. Get-AzureBatchNodeFileContent, Remove-AzureBatchNodeFile
 
 ### <a name="type-psnodefile"></a>**PSNodeFile** 형식
 
  - `PSNodeFile`에서 `Name` 속성의 이름이 `Path`로 변경되었습니다.
 
-```powershell
+```powershell-interactive
 # Old
 $file = Get-AzureBatchNodeFile [parameters]
 $file.Name
@@ -254,7 +270,7 @@ $file.Path
 - `PSSubtaskInformation`의 `PreviousState` 및 `State` 속성은 더 이상 `TaskState` 형식이 아니며, 대신 `SubtaskState` 형식입니다.
   - 하위 작업이 `Active` 상태가 될 수 없으므로, `TaskState`와 달리, `SubtaskState`에는 `Active` 값이 없습니다.
 
-```powershell
+```powershell-interactive
 # Old
 $subtask = Get-AzureBatchSubtask [parameters]
 if ($subtask.State -eq Microsoft.Azure.Batch.Common.TaskState.Running) { }
@@ -269,7 +285,7 @@ if ($subtask.State -eq Microsoft.Azure.Batch.Common.SubtaskState.Running) { }
 ### <a name="set-azurermvmaccessextension"></a>**Set-AzureRmVMAccessExtension**
 - 매개 변수 "UserName" 및 "Password"가 PSCredential에 대해 대체됨
 
-```powershell
+```powershell-interactive
 # Old
 Set-AzureRmVMAccessExtension [other required parameters] -UserName "plain-text string" -Password "plain-text string"
 
@@ -300,7 +316,7 @@ Set-AzureRmVMAccessExtension [other required parameters] -Credential $PSCredenti
 ### <a name="new-azurermeventhubnamespace"></a>**New-AzureRmEventHubNamespace**
 - NamespceAttributes의 'Status' 및 'Enabled' 속성이 제거되었습니다. 
 
-```powershell
+```powershell-interactive
 # Old
 # The $namespace has Status and Enabled property  
 $namespace = New-AzureRmEventHubNamespace <parameters>
@@ -315,7 +331,7 @@ $namespace = Get-AzureRmEventHubNamespace <parameters>
 ### <a name="get-azurermeventhubnamespace"></a>**Get-AzureRmEventHubNamespace**
 - NamespceAttributes의 'Status' 및 'Enabled' 속성이 제거되었습니다. 
 
-```powershell
+```powershell-interactive
 # Old
 # The $namespace has Status and Enabled property 
 $namespace = Get-AzureRmEventHubNamespace <parameters>
@@ -330,7 +346,7 @@ $namespace = Get-AzureRmEventHubNamespace <parameters>
 ### <a name="set-azurermeventhubnamespace"></a>**Set-AzureRmEventHubNamespace**
 - NamespceAttributes의 'Status' 및 'Enabled' 속성이 제거되었습니다. 
 
-```powershell
+```powershell-interactive
 # Old
 # The $namespace has Status and Enabled property 
 $namespace = Set-AzureRmEventHubNamespace <parameters>
@@ -345,7 +361,7 @@ $namespace = Set-AzureRmEventHubNamespace <parameters>
 ### <a name="new-azurermeventhubconsumergroup"></a>**New-AzureRmEventHubConsumerGroup**
 - ConsumerGroupAttributes의 'EventHubPath' 속성이 제거되었습니다.
 
-```powershell
+```powershell-interactive
 # Old
 # The $consumergroup has EventHubPath property 
 $consumergroup = New-AzureRmEventHubConsumerGroup <parameters>
@@ -359,7 +375,7 @@ $consumergroup = New-AzureRmEventHubConsumerGroup <parameters>
 ### <a name="set-azurermeventhubconsumergroup"></a>**Set-AzureRmEventHubConsumerGroup**
 - ConsumerGroupAttributes의 'EventHubPath' 속성이 제거되었습니다.
 
-```powershell
+```powershell-interactive
 # Old
 # The $consumergroup has EventHubPath property 
 $consumergroup = Set-AzureRmEventHubConsumerGroup <parameters>
@@ -373,7 +389,7 @@ $consumergroup = Set-AzureRmEventHubConsumerGroup <parameters>
 ### <a name="get-azurermeventhubconsumergroup"></a>**Get-AzureRmEventHubConsumerGroup**
 - ConsumerGroupAttributes의 'EventHubPath' 속성이 제거되었습니다.
 
-```powershell
+```powershell-interactive
 # Old
 # The $consumergroup has EventHubPath property 
 $consumergroup = Get-AzureRmEventHubConsumerGroup <parameters>
@@ -397,9 +413,9 @@ $consumergroup = Get-AzureRmEventHubConsumerGroup <parameters>
 - 출력 변경: 이제 상수 값(Admin,Operation)을 반환하므로 EventData 개체(이러한 cmdlet에서 반환됨)의 EventChannels 필드가 더 이상 사용되지 않습니다.
 
 ### <a name="get-azurermalertrule"></a>**Get-AzureRmAlertRule**
-- 출력 변경: 이 cmdlet의 출력은 속성 필드를 제거하도록 평면화되어 사용자 환경을 개선합니다.
+- 출력 변경: 이 cmdlet의 출력이 평면화되어, 즉 속성 필드가 제거되어 사용자 환경이 개선될 것입니다.
 
-```powershell
+```powershell-interactive
 # Old
 $rules = Get-AzureRmAlertRule -ResourceGroup $resourceGroup
 if ($rules -and $rules.count -ge 1)
@@ -429,7 +445,7 @@ if ($rules -and $rules.count -ge 1)
 ### <a name="get-azurermautoscalesetting"></a>**Get-AzureRmAutoscaleSetting**
 - 출력 변경: AutoscaleSettingResourceName 필드는 항상 이름 필드와 같으므로 더 이상 사용되지 않습니다.
 
-```powershell
+```powershell-interactive
 # Old
 $s1 = Get-AzureRmAutoscaleSetting -ResourceGroup $resourceGroup -Name MySetting
 if ($s1.AutoscaleSettingResourceName -ne $s1.Name)
@@ -447,7 +463,7 @@ Write-Host $s1.Name
 ### <a name="remove-azurermalertrule--remove-azurermlogprofile"></a>**Remove-AzureRmAlertRule** / **Remove-AzureRmLogProfile**
 - 출력 변경: 출력 형식은 요청 ID 및 상태 코드가 포함된 단일 개체를 반환하도록 변경됩니다.
 
-```powershell
+```powershell-interactive
 # Old
 $s1 = Remove-AzureRmAlertRule -ResourceGroup $resourceGroup -name $ruleName
 if ($s1 -ne $null)
@@ -467,7 +483,7 @@ $s = $s1.StatusCode
 ### <a name="add-azurermapplicationgatewaysslcertificate"></a>**Add-AzureRmApplicationGatewaySslCertificate**
 - 매개 변수 "Password"가 SecureString에 대해 대체됨
 
-```powershell
+```powershell-interactive
 # Old
 Add-AzureRmApplicationGatewaySslCertificate [other required parameters] -Password "plain-text string"
 
@@ -478,7 +494,7 @@ Add-AzureRmApplicationGatewaySslCertificate [other required parameters] -Passwor
 ### <a name="new-azurermapplicationgatewaysslcertificate"></a>**New-AzureRmApplicationGatewaySslCertificate**
 - 매개 변수 "Password"가 SecureString에 대해 대체됨
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureRmApplicationGatewaySslCertificate [other required parameters] -Password "plain-text string"
 
@@ -489,7 +505,7 @@ New-AzureRmApplicationGatewaySslCertificate [other required parameters] -Passwor
 ### <a name="set-azurermapplicationgatewaysslcertificate"></a>**Set-AzureRmApplicationGatewaySslCertificate**
 - 매개 변수 "Password"가 SecureString에 대해 대체됨
 
-```powershell
+```powershell-interactive
 # Old
 Set-AzureRmApplicationGatewaySslCertificate [other required parameters] -Password "plain-text string"
 
@@ -502,7 +518,7 @@ Set-AzureRmApplicationGatewaySslCertificate [other required parameters] -Passwor
 ### <a name="new-azurermadappcredential"></a>**New-AzureRmADAppCredential**
 - 매개 변수 "Password"가 SecureString에 대해 대체됨
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureRmADAppCredential [other required parameters] -Password "plain-text string"
 
@@ -513,7 +529,7 @@ New-AzureRmADAppCredential [other required parameters] -Password $SecureStringVa
 ### <a name="new-azurermadapplication"></a>**New-AzureRmADApplication**
 - 매개 변수 "Password"가 SecureString에 대해 대체됨
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureRmADApplication [other required parameters] -Password "plain-text string"
 
@@ -524,7 +540,7 @@ New-AzureRmADApplication [other required parameters] -Password $SecureStringVari
 ### <a name="new-azurermadserviceprincipal"></a>**New-AzureRmADServicePrincipal**
 - 매개 변수 "Password"가 SecureString에 대해 대체됨
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureRmADServicePrincipal [other required parameters] -Password "plain-text string"
 
@@ -535,7 +551,7 @@ New-AzureRmADServicePrincipal [other required parameters] -Password $SecureStrin
 ### <a name="new-azurermadspcredential"></a>**New-AzureRmADSpCredential**
 - 매개 변수 "Password"가 SecureString에 대해 대체됨
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureRmADSpCredential [other required parameters] -Password "plain-text string"
 
@@ -546,7 +562,7 @@ New-AzureRmADSpCredential [other required parameters] -Password $SecureStringVar
 ### <a name="new-azurermaduser"></a>**New-AzureRmADUser**
 - 매개 변수 "Password"가 SecureString에 대해 대체됨
 
-```powershell
+```powershell-interactive
 # Old
 New-AzureRmADUser [other required parameters] -Password "plain-text string"
 
@@ -557,7 +573,7 @@ New-AzureRmADUser [other required parameters] -Password $SecureStringVariable
 ### <a name="set-azurermaduser"></a>**Set-AzureRmADUser**
 - 매개 변수 "Password"가 SecureString에 대해 대체됨
 
-```powershell
+```powershell-interactive
 # Old
 Set-AzureRmADUser [other required parameters] -Password "plain-text string"
 
@@ -626,7 +642,7 @@ Set-AzureRmADUser [other required parameters] -Password $SecureStringVariable
     - 사용
     - 상태
    
-```powershell
+```powershell-interactive
 # Old
 # The $namespace has Status and Enabled property 
 $namespace = Get-AzureRmServiceBusNamespace <parameters>
@@ -645,7 +661,7 @@ $namespace = Get-AzureRmServiceBusNamespace <parameters>
     - IsAnonymousAccessible
     - SupportOrdering
 
-```powershell
+```powershell-interactive
 # Old
 # The $queue has EntityAvailabilityStatus, EnableBatchedOperations, IsAnonymousAccessible and SupportOrdering properties
 $queue = Get-AzureRmServiceBusQueue <parameters>
@@ -668,7 +684,7 @@ $queue = Get-AzureRmServiceBusQueue <parameters>
     - EnableSubscriptionPartitioning
     - EntityAvailabilityStatus
 
-```powershell
+```powershell-interactive
 # Old
 # The $topic has EntityAvailabilityStatus, EnableSubscriptionPartitioning, IsAnonymousAccessible, IsExpress, Location and FilteringMessagesBeforePublishing properties
 $topic = Get-AzureRmServiceBusTopic <parameters>
@@ -691,7 +707,7 @@ $topic = Get-AzureRmServiceBusTopic <parameters>
     - IsReadOnly
     - 위치
    
-```powershell
+```powershell-interactive
 # Old
 # The $subscription has EntityAvailabilityStatus, EnableSubscriptionPartitioning, IsAnonymousAccessible, IsExpress, Location and FilteringMessagesBeforePublishing properties
 $subscription = Get-AzureRmServiceBussubscription <parameters>
