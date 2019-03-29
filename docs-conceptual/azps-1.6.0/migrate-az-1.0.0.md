@@ -48,7 +48,7 @@ ms.locfileid: "58475539"
 
 ## <a name="general-breaking-changes"></a>일반적인 주요 변경 내용
 ### <a name="cmdlet-noun-prefix-changes"></a>Cmdlet 명사 접두사 변경
-AzureRM에서는 cmdlet 명사 접두사로 'AzureRM' 또는 'Azure'를 사용합니다.  Az는 cmndlet 이름을 단순화하고 정규화하여 모든 cmdlet이 'Az'를 cmdlet 명사 접두사로 사용합니다. 예: 
+AzureRM에서는 cmdlet 명사 접두사로 'AzureRM' 또는 'Azure'를 사용합니다.  Az는 cmndlet 이름을 단순화하고 정규화하여 모든 cmdlet이 'Az'를 cmdlet 명사 접두사로 사용합니다. 예를 들면 다음과 같습니다.
 ```powershell
 Get-AzureRMVM
 Get-AzureKeyVaultSecret

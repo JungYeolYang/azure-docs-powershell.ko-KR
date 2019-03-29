@@ -79,7 +79,7 @@ PS C:\> Set-AzureRMContext -Subscription "Contoso Subscription 1" -Name "Contoso
 
 앞의 예제는 현재 자격 증명을 사용하여 새 컨텍스트 대상인 ‘Contoso Subscription 1’을 추가합니다. 새 컨텍스트는 ‘Contoso1’이라고 합니다. 컨텍스트에 대한 이름을 제공하지 않은 경우 계정 ID 및 구독 ID를 사용하는 기본 이름이 사용됩니다.
 
-기존 컨텍스트 이름을 바꾸려면 `Rename-AzureRmContext` cmdlet을 사용합니다. 예: 
+기존 컨텍스트 이름을 바꾸려면 `Rename-AzureRmContext` cmdlet을 사용합니다. 예를 들면 다음과 같습니다.
 
 ```azurepowershell-interactive
 PS C:\> Rename-AzureRmContext '[user1@contoso.org; 123456-7890-1234-564321]` 'Contoso2'
@@ -87,7 +87,7 @@ PS C:\> Rename-AzureRmContext '[user1@contoso.org; 123456-7890-1234-564321]` 'Co
 
 이 예제에서는 자동 이름 `[user1@contoso.org; 123456-7890-1234-564321]`을 사용하는 컨텍스트 이름을 간단한 이름인 ‘Contoso2’로 바꿉니다. 또한 컨텍스트를 관리하는 cmdlet에서 탭 완성 기능을 사용하면 컨텍스트를 빠르게 선택할 수 있습니다.
 
-마지막으로, 컨텍스트를 제거하려면 `Remove-AzureRmContext` cmdlet을 사용합니다.  예: 
+마지막으로, 컨텍스트를 제거하려면 `Remove-AzureRmContext` cmdlet을 사용합니다.  예를 들면 다음과 같습니다.
 
 ```azurepowershell-interactive
 PS C:\> Remove-AzureRmContext Contoso2
