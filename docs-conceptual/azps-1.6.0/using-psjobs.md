@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.openlocfilehash: 58aa777ca599c2a6181f0ecc5c20f6db7a89b75f
-ms.sourcegitcommit: 8f59e11e5c991543964154d63648aa1e6ae22512
+ms.openlocfilehash: 825a07e01194a07b747712a62384c7f162e63d7d
+ms.sourcegitcommit: d3069aba7d1ac248aff755e4b21533af1f73251d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58475619"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58808039"
 ---
 # <a name="running-cmdlets-in-parallel-using-powershell-jobs"></a>PowerShell 작업을 사용하여 병렬로 cmdlet 실행
 
@@ -25,7 +25,7 @@ PSJob은 개별 프로세스로 실행되므로 Azure 연결을 공유해야 합
 
 ```azurepowershell-interactive
 $creds = Get-Credential
-$job = Start-Job { param($context,$vmadmin) New-AzVM -Name MyVm -AzContext $context -Credential $vmadmin} -Arguments (Get-AzContext),$creds
+$job = Start-Job { param($context,$vmadmin) New-AzVM -Name MyVm -AzContext $context -Credential $vmadmin} -ArgumentList (Get-AzContext),$creds
 ```
 
 그러나 컨텍스트가 `Enable-AzContextAutosave`로 자동 저장되도록 선택한 경우 컨텍스트는 작성한 모든 작업과 자동으로 공유됩니다.
@@ -33,7 +33,7 @@ $job = Start-Job { param($context,$vmadmin) New-AzVM -Name MyVm -AzContext $cont
 ```azurepowershell-interactive
 Enable-AzContextAutosave
 $creds = Get-Credential
-$job = Start-Job { param($vmadmin) New-AzVM -Name MyVm -Credential $vmadmin} -Arguments $creds
+$job = Start-Job { param($vmadmin) New-AzVM -Name MyVm -Credential $vmadmin} -ArgumentList $creds
 ```
 
 ## <a name="automatic-jobs-with--asjob"></a>`-AsJob`을 포함한 자동 작업
