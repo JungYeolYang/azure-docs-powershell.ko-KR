@@ -28,7 +28,7 @@ ms.locfileid: "56153441"
 - [Sql cmdlet의 주요 변경 내용](#breaking-changes-to-sql-cmdlets)
 - [Storage cmdlet의 주요 변경 내용](#breaking-changes-to-storage-cmdlets)
 - [Profile cmdlet의 주요 변경 내용](#breaking-changes-to-profile-cmdlets)
-  ## <a name="breaking-changes-to-compute-cmdlets"></a>Compute cmdlet의 주요 변경 내용
+  ## <a name="breaking-changes-to-compute-cmdlets"></a>Compute cmdlet의 호환성이 손상되는 변경
 
 이 릴리스에는 다음과 같은 출력 형식이 적용됩니다.
 

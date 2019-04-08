@@ -280,7 +280,7 @@ $subtask = Get-AzureBatchSubtask [parameters]
 if ($subtask.State -eq Microsoft.Azure.Batch.Common.SubtaskState.Running) { }
 ```
 
-## <a name="breaking-changes-to-compute-cmdlets"></a>Compute cmdlet의 주요 변경 내용
+## <a name="breaking-changes-to-compute-cmdlets"></a>Compute cmdlet의 호환성이 손상되는 변경
 
 ### <a name="set-azurermvmaccessextension"></a>**Set-AzureRmVMAccessExtension**
 - 매개 변수 "UserName" 및 "Password"가 PSCredential에 대해 대체됨
