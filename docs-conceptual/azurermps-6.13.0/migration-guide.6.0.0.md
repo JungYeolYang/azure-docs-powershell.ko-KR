@@ -151,7 +151,7 @@ New-AzureRmAvailabilitySet -ResourceGroupName "MyRG" -Name "MyAvailabilitySet" -
 
 **Set-AzureRmVMAEMExtension**
 - `DisableWAD` 매개 변수가 제거되었습니다.
-    -  Windows Azure 진단은 기본적으로 사용되지 않습니다.
+    -  Windows Azure Diagnostics는 기본적으로 사용되지 않습니다.
 
 **Set-AzureRmVMDataDisk**
 - `StorageAccountType` 매개 변수에 허용되는 값이 각각 `StandardLRS` 및 `PremiumLRS`에서 `Standard_LRS` 및 `Premium_LRS`로 변경되었습니다.
