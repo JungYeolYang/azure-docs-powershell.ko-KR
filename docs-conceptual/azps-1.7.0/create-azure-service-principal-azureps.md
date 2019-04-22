@@ -8,10 +8,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.openlocfilehash: 06116c7eb6ed848c9f369a3dd16f5e901e02afbe
-ms.sourcegitcommit: 1f13aaa89d23130f84b98047e261d26cd4e9cf0c
+ms.sourcegitcommit: ae4540a90508db73335a54408dfd6cdf3712a1e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59430621"
 ---
 # <a name="create-an-azure-service-principal-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 서비스 주체 만들기
@@ -91,8 +91,8 @@ $sp = New-AzADServicePrincipal -DisplayName ServicePrincipalName -KeyCredential 
 
 현재 활동 중인 테넌트의 서비스 주체 목록은 [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal)을 사용하여 검색할 수 있습니다. 기본적으로 이 명령은 테넌트의 __모든__ 서비스 주체를 반환하므로 대규모 조직의 경우 결과를 반환하는 데 오랜 시간이 걸릴 수 있습니다. 대신 선택적 서버 측 필터링 인수 중 하나를 사용하는 것이 좋습니다.
 
-* `-DisplayNameBeginsWith` 제공된 값과 일치하는 _접두사_가 있는 서비스 주체를 요청합니다. 서비스 주체의 표시 이름은 만드는 중에 `-DisplayName`으로 설정된 값입니다.
-* `-DisplayName` 서비스 주체 이름과 _정확히 일치하는_ 것을 요청합니다.
+* `-DisplayNameBeginsWith`은 제공된 값과 일치하는 _접두사_가 있는 서비스 주체를 요청합니다. 서비스 주체의 표시 이름은 만드는 중에 `-DisplayName`으로 설정된 값입니다.
+* `-DisplayName`은 서비스 주체 이름과 _정확히 일치하는_ 것을 요청합니다.
 
 ## <a name="manage-service-principal-roles"></a>서비스 주체 역할 관리
 
@@ -100,7 +100,7 @@ Azure PowerShell은 역할 할당을 관리하는 다음과 같은 cmdlet이 있
 
 * [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment)
 * [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)
-* [Delete-AzRoleAssignment](/powershell/module/az.resources/delete-azroleassignment)
+* [Delete AzRoleAssignment](/powershell/module/az.resources/delete-azroleassignment)
 
 서비스 주체의 기본 역할은 **참가자**입니다. 이 역할에는 Azure 계정에서 읽고 쓸 수 있는 모든 권한이 있습니다. **Reader**(읽기 권한자) 역할은 읽기 전용 액세스 권한으로 더 제한적입니다.  RBAC(역할 기반 액세스 제어)와 역할에 대한 자세한 내용은 [RBAC: 기본 제공 역할](/azure/active-directory/role-based-access-built-in-roles)을 참조하세요.
 

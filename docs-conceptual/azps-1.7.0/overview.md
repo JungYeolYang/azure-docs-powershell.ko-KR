@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.manager: carmonm
 ms.date: 01/10/2019
 ms.openlocfilehash: 45ab083dd133c8c7b8dbe902484c92564bc216b9
-ms.sourcegitcommit: 89066b7c4b527357bb2024e1ad708df84c131804
+ms.sourcegitcommit: ae4540a90508db73335a54408dfd6cdf3712a1e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59364165"
 ---
 # <a name="overview-of-azure-powershell"></a>Azure PowerShell 개요
@@ -46,17 +46,17 @@ Azure PowerShell 최신 릴리스에 대한 자세한 내용은 [릴리스 정�
 
 [Azure PowerShell 시작하기](get-started-azureps.md) 아티클을 읽고 Azure PowerShell 기본 사항을 배워보세요. PowerShell에 대해 익숙하지 않으면 소개가 도움이 될 수 있습니다.
 
-* [PowerShell 설치 ](/powershell/scripting/install/installing-powershell)
+* [PowerShell 설치](/powershell/scripting/install/installing-powershell)
 * [PowerShell 스크립팅](/powershell/scripting/powershell-scripting)
-* [PowerShell 기본 사항: (파트 1) PowerShell 시작](https://channel9.msdn.com/Blogs/Taste-of-Premier/PowerShellBasicsPart1)
+* [PowerShell 기본 사항: (파트 1)PowerShell 시작](https://channel9.msdn.com/Blogs/Taste-of-Premier/PowerShellBasicsPart1)
 * Microsoft Virtual Academy의 [PowerShell 시작](https://mva.microsoft.com/liveevents/powershell-jumpstart)
 
 다음 예제는 Azure의 일반적인 사용법을 알려줍니다.
 
-* [Linux 가상 머신](/azure/virtual-machines/virtual-machines-linux-powershell-samples?toc=/powershell/azure/toc.json)
+* [Linux Virtual Machines](/azure/virtual-machines/virtual-machines-linux-powershell-samples?toc=/powershell/azure/toc.json)
 * [Windows Virtual Machines](/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=/powershell/azure/toc.json)
 * [Web Apps](/azure/app-service-web/app-service-powershell-samples?toc=/powershell/azure/toc.json)
-* [SQL Database](/azure/sql-database/sql-database-powershell-samples?toc=/powershell/azure/toc.json)
+* [SQL Databases](/azure/sql-database/sql-database-powershell-samples?toc=/powershell/azure/toc.json)
 
 ## <a name="build-your-skills-with-microsoft-learn"></a>Microsoft Learn을 통해 기술 쌓기
 

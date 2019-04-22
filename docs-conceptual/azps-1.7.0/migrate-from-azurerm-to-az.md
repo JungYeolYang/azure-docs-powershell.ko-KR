@@ -8,10 +8,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.openlocfilehash: 28122ca953d62b405f19effbbc680f2dc6202cca
-ms.sourcegitcommit: 89066b7c4b527357bb2024e1ad708df84c131804
+ms.sourcegitcommit: ae4540a90508db73335a54408dfd6cdf3712a1e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59364189"
 ---
 # <a name="migrate-from-azurerm-to-azure-powershell-az"></a>AzureRM에서 Azure PowerShell Az로 마이그레이션
@@ -68,7 +68,7 @@ Enable-AzureRmAlias -Scope CurrentUser
 ## <a name="change-module-imports-and-cmdlet-names"></a>모듈 가져오기 및 cmdlet 이름 변경
 
 일반적으로 모듈 이름은 `AzureRM` 및 `Azure`가 `Az`가 되도록 변경되었으며 cmdlet에도 동일하게 적용됩니다.
-예를 들어, `AzureRM.Compute` 모듈의 이름이 `Az.Compute`로 변경되었습니다. `New-AzureRMVM` `New-AzVM`이 되고, `Get-AzureStorageBlob`은 이제 `Get-AzStorageBlob`이 되었습니다.
+예를 들어, `AzureRM.Compute` 모듈의 이름이 `Az.Compute`로 변경되었습니다. `New-AzureRMVM`은 `New-AzVM`이 되고 `Get-AzureStorageBlob`은 이제 `Get-AzStorageBlob`입니다.
 
 이 이름 변경에는 알아야 할 예외 사항이 있습니다. `AzureRM` 또는 `Azure`를 `Az`로 변경하는 것 이외에 일부 cmdlet의 접미사에 영향을 주지 않고 일부 모듈의 이름을 바꾸거나 기존 모듈에 병합했습니다. 또는 전체 cmdlet 접미사가 새로운 모듈 이름을 반영하도록 변경되었습니다.
 

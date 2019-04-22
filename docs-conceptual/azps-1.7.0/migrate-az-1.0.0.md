@@ -8,10 +8,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.openlocfilehash: be3e19dc4b689adbc63b933dd9f3454122d5344a
-ms.sourcegitcommit: 89066b7c4b527357bb2024e1ad708df84c131804
+ms.sourcegitcommit: ae4540a90508db73335a54408dfd6cdf3712a1e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59364151"
 ---
 # <a name="migration-guide-for-az-100"></a>Az 1.0.0에 대한 마이그레이션 가이드
@@ -60,7 +60,7 @@ Get-AzVM
 Get-AzKeyVaultSecret
 ```
 
-이러한 새 cmdlet 이름으로의 전환을 보다 간단하게 만들기 위해 Az는 두 가지 새로운 cmdlet인 ```Enable-AzureRmAlias```와 ```Disable-AzureRmAlias```를 도입했습니다.  ```Enable-AzureRmAlias``` AzureRM의 이전 cmdlet 이름에서 최신 Az cmdlet 이름의 별칭을 만듭니다.  cmdlet을 사용하면 사용자 또는 컴퓨터 프로필을 변경하여 현재 세션에서 또는 모든 세션에서 별칭을 만들 수 있습니다. 
+이러한 새 cmdlet 이름으로의 전환을 보다 간단하게 만들기 위해 Az는 두 가지 새로운 cmdlet인 ```Enable-AzureRmAlias```와 ```Disable-AzureRmAlias```를 도입했습니다.  ```Enable-AzureRmAlias```는 AzureRM의 이전 cmdlet 이름에서 최신 Az cmdlet 이름의 별칭을 만듭니다.  cmdlet을 사용하면 사용자 또는 컴퓨터 프로필을 변경하여 현재 세션에서 또는 모든 세션에서 별칭을 만들 수 있습니다. 
 
 예를 들어, AzureRM의 다음 스크립트가 있습니다.
 ```powershell
@@ -82,7 +82,7 @@ Get-AzureRmStorageAccount | Get-AzureStorageContainer | Get-AzureStorageBlob
 
 별칭 cmdlet 사용에 대한 자세한 내용은 powershell 프롬프트에서 ```Get-Help -Online Enable-AzureRmAlias```를 실행합니다.
 
-```Disable-AzureRmAlias``` ```Enable-AzureRmAlias```로 만든 AzureRM cmdlet 별칭을 제거합니다.  자세한 내용은 powershell 프롬프트에서 ```Get-Help -Online Disable-AzureRmAlias```를 실행합니다.
+```Disable-AzureRmAlias```는 ```Enable-AzureRmAlias```로 만든 AzureRM cmdlet 별칭을 제거합니다.  자세한 내용은 powershell 프롬프트에서 ```Get-Help -Online Disable-AzureRmAlias```를 실행합니다.
 
 ### <a name="module-name-changes"></a>모듈 이름 변경
 - 다음 모듈을 제외하고 모듈 이름이 `AzureRM.*`에서 `Az.*`로 변경되었습니다.
@@ -187,10 +187,10 @@ RequiredModules = @(@{ModuleName="Az.Profile"; ModuleVersion="1.0.0"})
 
 ### <a name="azcompute-previously-azurermcompute"></a>Az.Compute(이전에는 AzureRM.Compute)
 - `PSVirtualMachine` 및 `PSVirtualMachineScaleSet` 객체의 `Identity` 속성에서 `IdentityIds`가 제거되었습니다. 스크립트는 더 이상 이 필드의 값을 사용하여 처리 결정을 내려서는 안됩니다.
-- `PSVirtualMachineScaleSetVM` 개체의 `InstanceView` 속성의 형식이 `VirtualMachineInstanceView`에서 ??로 변경되고 `VirtualMachineScaleSetVMInstanceView`
-- `AutoOSUpgradePolicy` `UpgradePolicy` 속성에서 `AutomaticOSUpgrade` 속성이 제거되었습니다.
-- `PSSnapshotUpdate` 개체의 `Sku` 속성의 형식이 `DiskSku`에서 ??로 변경되었습니다. `SnapshotSku`
-- `VmScaleSetVMParameterSet` `Add-AzVMDataDisk` cmdlet에서 제거되면 더 이상 ScaleSet VM에 개별적으로 데이터 디스크를 추가할 수 없습니다.
+- `PSVirtualMachineScaleSetVM` 개체의 `InstanceView` 속성의 형식이 `VirtualMachineInstanceView`에서 `VirtualMachineScaleSetVMInstanceView`로 변경되었습니다.
+- `UpgradePolicy` 속성에서 `AutoOSUpgradePolicy` 및 `AutomaticOSUpgrade` 속성이 제거되었습니다.
+- `PSSnapshotUpdate` 개체의 `Sku` 속성의 형식이 `DiskSku`에서 `SnapshotSku`로 변경되었습니다.
+- `VmScaleSetVMParameterSet`이 `Add-AzVMDataDisk` cmdlet에서 제거되면 더 이상 ScaleSet VM에 개별적으로 데이터 디스크를 추가할 수 없습니다.
 
 ### <a name="azdatafactory-previously-azurermdatafactories-and-azurermdatafactoryv2"></a>Az.DataFactory(이전에는 AzureRM.DataFactories 및 AzureRM.DataFactoryV2)
 - `GatewayName` 매개 변수가 `New-AzDataFactoryEncryptValue` cmdlet에서 필수 항목이 되었습니다.
@@ -198,7 +198,7 @@ RequiredModules = @(@{ModuleName="Az.Profile"; ModuleVersion="1.0.0"})
 - `Get-AzDataFactoryV2ActivityRun` cmdlet에서 `LinkedServiceName` 매개 변수가 제거되었습니다. 스크립트는 더 이상 이 필드의 값을 사용하여 처리 결정을 내려서는 안됩니다.
 
 ### <a name="azdatalakeanalytics-previously-azurermdatalakeanalytics"></a>Az.DataLakeAnalytics(이전에는 AzureRM.DataLakeAnalytics)
-- 사용되지 않는 cmdlet 제거: `New-AzDataLakeAnalyticsCatalogSecret`, `Remove-AzDataLakeAnalyticsCatalogSecret` 및 `Set-AzDataLakeAnalyticsCatalogSecret`
+- 사용되지 않는 cmdlet 제거: `New-AzDataLakeAnalyticsCatalogSecret`, `Remove-AzDataLakeAnalyticsCatalogSecret`, `Set-AzDataLakeAnalyticsCatalogSecret`
 
 ### <a name="azdatalakestore-previously-azurermdatalakestore"></a>Az.DataLakeStore(이전에는 AzureRM.DataLakeStore)
 - 다음 cmdlet의 `Encoding` 매개 변수는 `FileSystemCmdletProviderEncoding` 형식에서 `System.Text.Encoding` 형식으로 변경되었습니다. 이 변경은 인코딩 값 `String` 및 `Oem`을 제거합니다. 다른 모든 이전 인코딩 값은 유지됩니다.
@@ -305,12 +305,12 @@ RequiredModules = @(@{ModuleName="Az.Profile"; ModuleVersion="1.0.0"})
 ### <a name="azsql-previously-azurermsql"></a>Az.Sql(이전에는 AzureRM.Sql)
 - `Set-AzSqlDatabaseBackupLongTermRetentionPolicy` cmdlet에서 `State`, `ResourceId` 매개 변수 제거
 - 사용되지 않는 cmdlet 제거: `Get/Set-AzSqlServerBackupLongTermRetentionVault`, `Get/Start/Stop-AzSqlServerUpgrade`, `Get/Set-AzSqlDatabaseAuditingPolicy`, `Get/Set-AzSqlServerAuditingPolicy`, `Remove-AzSqlDatabaseAuditing`, `Remove-AzSqlServerAuditing`
-- 사용되지 않는 매개 변수 `Current`을 `Get-AzSqlDatabaseBackupLongTermRetentionPolicy` cmdlet에서 제거
+- 사용되지 않는 매개 변수 `Current`를 `Get-AzSqlDatabaseBackupLongTermRetentionPolicy` cmdlet에서 제거
 - 사용되지 않는 매개 변수 `DatabaseName`을 `Get-AzSqlServerServiceObjective` cmdlet에서 제거
 - 사용되지 않는 매개 변수 `PrivilegedLogin`을 `Set-AzSqlDatabaseDataMaskingPolicy` cmdlet에서 제거
 
 ### <a name="azstorage-previously-azurestorage-and-azurermstorage"></a>Az.Storage(이전에는 Azure.Storage 및 AzureRM.Storage)
-- 스토리지 계정 이름만 사용하여 Oauth 스토리지 컨텍스트를 만들 수 있도록 기본 매개 변수 세트가 ??(으)로 변경되었습니다. `OAuthParameterSet`
+- 스토리지 계정 이름만 사용하여 Oauth 스토리지 컨텍스트를 만들 수 있도록 기본 매개 변수 집합이 `OAuthParameterSet`으로 변경되었습니다.
   - 예제: `$ctx = New-AzureStorageContext -StorageAccountName $accountName`
 - `Location` 매개 변수가 `Get-AzStorageUsage` cmdlet에서 필수 항목이 되었습니다.
 - 이제 Storage API 메서드는 동기 API 호출 대신 작업 기반 비동기 패턴(TAP)을 사용합니다.

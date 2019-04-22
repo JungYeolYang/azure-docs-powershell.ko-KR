@@ -8,10 +8,10 @@ ms.devlang: powershell
 ms.topic: get-started-article
 ms.date: 01/14/2019
 ms.openlocfilehash: 0c3b749cb2ac7f11dacafca76b65944f523f727d
-ms.sourcegitcommit: 89066b7c4b527357bb2024e1ad708df84c131804
+ms.sourcegitcommit: ae4540a90508db73335a54408dfd6cdf3712a1e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59364123"
 ---
 # <a name="get-started-with-azure-powershell"></a>Azure PowerShell 시작
@@ -82,12 +82,12 @@ Azure PowerShell을 시작하려면 가상 머신 설정 및 쿼리 방법에 �
 
 기타 인기 Azure 서비스에 대한 Azure PowerShell 빠른 시작도 있습니다.
 
-* [저장소 계정 만들기](/azure/storage/common/storage-quickstart-create-account?tabs=azure-powershell)
-* [Azure Blob Storage로/에서 개체 전송](/azure/storage/blobs/storage-quickstart-blobs-powershell)
-* [Azure Key Vault에서 비밀 만들기 및 검색](/azure/key-vault/quick-create-powershell)
+* [저장소 계정을 만드는](/azure/storage/common/storage-quickstart-create-account?tabs=azure-powershell)
+* [Azure Blob Storage 간에 개체 전송](/azure/storage/blobs/storage-quickstart-blobs-powershell)
+* [Azure Key Vault에서 비밀을 만들고 검색](/azure/key-vault/quick-create-powershell)
 * [Azure SQL 데이터베이스 및 방화벽 만들기](/azure/sql-database/scripts/sql-database-create-and-configure-database-powershell)
-* [Azure Container Instances에서 컨테이너 실행](/azure/container-instances/container-instances-quickstart-powershell)
-* [VMSS(Virtual Machine Scale Set) 만들기](/azure/virtual-machine-scale-sets/quick-create-powershell)
+* [Azure Container Instances의 컨테이너 실행](/azure/container-instances/container-instances-quickstart-powershell)
+* [가상 머신 확장 집합 만들기(VMSS)](/azure/virtual-machine-scale-sets/quick-create-powershell)
 * [표준 부하 분산 장치 만들기](/azure/load-balancer/quickstart-create-standard-load-balancer-powershell)
 
 ## <a name="next-steps"></a>다음 단계
@@ -96,5 +96,5 @@ Azure PowerShell을 시작하려면 가상 머신 설정 및 쿼리 방법에 �
 * [Azure PowerShell을 사용하여 Azure 구독 관리](manage-subscriptions-azureps.md)
 * [Azure PowerShell로 서비스 주체 만들기](create-azure-service-principal-azureps.md)
 * 커뮤니티에서 도움말을 가져옵니다.
-  * [MSDN의 Azure 포럼](http://go.microsoft.com/fwlink/p/?LinkId=320212)
+  * [MSDN의 azure 포럼](http://go.microsoft.com/fwlink/p/?LinkId=320212)
   * [스택 오버플로](http://go.microsoft.com/fwlink/?LinkId=320213)

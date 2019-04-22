@@ -8,10 +8,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.openlocfilehash: 8702de48429482748939fb1a43ff911bed15f6c0
-ms.sourcegitcommit: 89066b7c4b527357bb2024e1ad708df84c131804
+ms.sourcegitcommit: ae4540a90508db73335a54408dfd6cdf3712a1e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59363835"
 ---
 # <a name="persist-user-credentials-across-powershell-sessions"></a>PowerShell 세션간에 사용자 자격 증명 유지
@@ -92,8 +92,7 @@ PS C:\> Rename-AzContext '[user1@contoso.org; 123456-7890-1234-564321]` 'Contoso
 PS C:\> Remove-AzContext Contoso2
 ```
 
-‘Contoso2’로 명명된 컨텍스트를 잊었습니다. 다음을 사용하여 이 컨텍스트를 다시 만들 수 있습니다.
-`Set-AzContext`
+‘Contoso2’로 명명된 컨텍스트를 잊었습니다. `Set-AzContext`를 사용하여 나중에 다시 이 컨텍스트를 만들 수 있습니다.
 
 ## <a name="removing-credentials"></a>자격 증명 제거
 
