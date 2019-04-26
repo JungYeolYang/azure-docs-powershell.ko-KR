@@ -70,7 +70,7 @@ Azure PowerShell에 대한 릴리스의 변경 내용 목록입니다.
 * 향후 호환성이 손상되는 변경에 대한 사용 중단 메시지 추가
 
 #### <a name="azurermsql"></a>AzureRM.Sql
-* Azure Sql Database Managed Instance 및 Azure Sql 관리 데이터베이스에 CRUD 작업을 위한 새 cmdlet 추가
+* Azure Sql Database Managed Instance 및 Azure Sql Managed Database에 CRUD 작업을 위한 새 cmdlet 추가
     - Get-AzureRmSqlInstance
     - New-AzureRmSqlInstance
     - Set-AzureRmSqlInstance
