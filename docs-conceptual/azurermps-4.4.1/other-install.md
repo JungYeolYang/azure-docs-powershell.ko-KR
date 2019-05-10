@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/06/2017
-ms.openlocfilehash: 836b586f9b537d5ca4147cea01f9192f890bb544
-ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.openlocfilehash: 8049b156e1c881ed2d4fe35a0d29c9dcd48e6e97
+ms.sourcegitcommit: b37b8bb6f8e39ecea5b50ceec48601eed313add7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56144777"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511598"
 ---
 # <a name="other-installation-methods"></a>다른 설치 방법
 
@@ -30,7 +30,7 @@ WebPI에서 최신 Azure PowerShell을 설치하는 것은 이전 버전과 같�
 >
 > PowerShell 갤러리 모듈은 `$env:ProgramFiles\WindowsPowerShell\Modules`에서 모듈을 설치합니다. 반면, WebPI 설치 관리자는 `$env:ProgramFiles(x86)\Microsoft SDKs\Azure\PowerShell\`에서 Azure 모듈을 설치합니다.
 >
-> 설치 중에 오류가 발생하는 경우 `$env:ProgramFiles\WindowsPowerShell\Modules` 폴더에서 Azure* 폴더를 수동으로 제거한 다음 다시 설치하면 됩니다.
+> 설치 중에 오류가 발생하는 경우 `$env:ProgramFiles\WindowsPowerShell\Modules` 폴더에서 Azure \*폴더를 수동으로 제거한 다음 다시 설치하면 됩니다.
 
 설치가 완료되면 `$env:PSModulePath` 설정에는 Azure PowerShell cmdlet이 들어 있는 디렉터리가 포함되어야 합니다. 다음 명령을 사용하여 Azure PowerShell이 제대로 설치되어 있는지 확인할 수 있습니다.
 
@@ -56,7 +56,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : CommandNotFoundException
 ```
 
-컴퓨터를 다시 시작하거나 정규화된 경로를 사용하는 모듈을 가져와서 이 오류를 해결할 수 있습니다. 예를 들면 다음과 같습니다.
+컴퓨터를 다시 시작하거나 정규화된 경로를 사용하는 모듈을 가져와서 이 오류를 해결할 수 있습니다. 예: 
 
 ```powershell-interactive
 Import-Module "$env:ProgramFiles(x86)\Microsoft SDKs\Azure\PowerShell\AzureRM.psd1"
