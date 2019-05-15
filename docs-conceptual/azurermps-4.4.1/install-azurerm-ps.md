@@ -7,25 +7,28 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/27/2018
-ms.openlocfilehash: fac77e88612091c09106dffea6aa6d3765c1416b
-ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.openlocfilehash: a8f79a5b24e790731a1ee962a1e80fb5ad89561a
+ms.sourcegitcommit: b37b8bb6f8e39ecea5b50ceec48601eed313add7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56153880"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511580"
 ---
-# <a name="install-and-configure-azure-powershell"></a>Azure PowerShell 설치 및 구성
+# <a name="install-azure-powershell-on-windows-with-powershellget"></a>PowerShellGet으로 Azure PowerShell을 설치
 
-이 문서에서는 Windows 환경에서 Azure PowerShell 모듈을 설치하는 단계를 설명합니다.
-macOS 또는 Linux에서 Azure PowerShell을 사용하려는 경우 다음 아티클을 참조하세요. [macOS 및 Linux에서 Azure PowerShell 설치 및 구성](install-azurermps-maclinux.md)
+[!INCLUDE [migrate-to-az](../includes/migrate-to-az.md)]
 
-PowerShell 갤러리에서 Azure PowerShell을 설치하는 것이 기본적인 설치 방법입니다.
+이 아티클에서는 PowerShellGet을 사용하여 Windows용 PowerShell 5.x용 Azure PowerShell 모듈을 설치하는 단계를 설명합니다. PowerShellGet 및 모듈 관리는 Azure PowerShell을 설치하는 더 좋은 방법이지만 대신 웹 플랫폼 설치 관리자 또는 MSI 패키지로 설치하려는 경우 [다른 설치 방법](other-install.md)을 참조합니다.
 
-[!INCLUDE[az-replacing-azurerm.md](../includes/az-replacing-azurerm.md)]
+Azure 클래식 배포 모델은 본 버전의 Azure PowerShell에서 지원되지 않습니다. 클래식 배포에 대한 지원은 [Azure PowerShell Service Management 모듈 설치](/powershell/azure/servicemanagement/install-azure-ps) 지침을 참조합니다.
+
+> [!IMPORTANT]
+> MacOS 또는 Linux 용 AzureRM 모듈은 지원되지 않습니다. 이러한 플랫폼에서 Azure PowerShell cmdlet을 사용하려면 [Az 모듈을 설치](/powershell/azure/install-az-ps)합니다.
 
 ## <a name="step-1-install-powershellget"></a>1단계: PowerShellGet 설치
 
 PowerShell 갤러리에서 항목을 설치하려면 PowerShellGet 모듈이 필요합니다. 적절한 버전의 PowerShellGet 및 다른 시스템 요구 사항이 있는지 확인합니다. PowerShellGet이 시스템에 설치되어 있는지 확인하려면 다음 명령을 실행합니다.
+
 
 ```powershell-interactive
 Get-InstalledModule -Name PowerShellGet -ListAvailable | Select-Object -Property Name,Version,Path
