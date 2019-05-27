@@ -6,6 +6,12 @@
   href: install-az-ps.md
 - name: 제거
   href: uninstall-az-ps.md
+- name: AzureRM에서 마이그레이션
+  items:
+    - name: 마이그레이션 시작
+      href: migrate-from-azurerm-to-az.md
+    - name: AzureRM과 Az 사이의 변경 내용
+      href: migrate-az-1.0.0.md
 - name: 시작하기
   href: get-started-azureps.md
 - name: Cloud Shell
@@ -18,8 +24,6 @@
       href: create-azure-service-principal-azureps.md
     - name: 영구 자격 증명
       href: context-persistence.md
-- name: AzureRM에서 마이그레이션
-  href: migrate-from-azurerm-to-az.md
 - name: 쿼리
   href: queries-azureps.md
 - name: 출력 형식 지정
@@ -58,5 +62,3 @@
       href: /azure/cosmos-db/powershell-samples?toc=%2fpowershell%2fmodules%2ftoc.json
 - name: 릴리스 정보
   href: release-notes-azureps.md
-- name: Az 1.0.0의 호환성이 손상되는 변경
-  href: migrate-az-1.0.0.md
