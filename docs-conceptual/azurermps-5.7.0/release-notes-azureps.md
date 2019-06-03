@@ -133,7 +133,7 @@ Update-Module -Name AzureRM
     - 연결된 서비스 매개 변수 지원 추가됨
 
 #### <a name="azurermdns"></a>AzureRM.Dns
-* 사설 DNS 영역 지원(공개 미리 보기)
+* 프라이빗 DNS 영역 지원(공개 미리 보기)
     - 연결된 가상 네트워크에만 표시되는 DNS 영역을 만들 수있는 기능을 추가합니다.
 
 #### <a name="azurermnetwork"></a>AzureRM.Network
