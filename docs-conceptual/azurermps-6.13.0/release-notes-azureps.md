@@ -139,7 +139,7 @@ Azure PowerShell에 대한 릴리스의 변경 내용 목록입니다.
 * 복구 서비스에 Azure 파일 공유 지원 추가.
 
 #### <a name="azurermresources"></a>AzureRM.Resources
-*  https://github.com/Azure/azure-powershell/issues/7402 에 대한 수정
+* https://github.com/Azure/azure-powershell/issues/7402 에 대한 수정
     - 'Get-AzureRmResource'에 대해 '-ResourceId' 매개 변수를 사용하여 리소스 나열 허용
 
 #### <a name="azurermservicebus"></a>AzureRM.ServiceBus
@@ -964,7 +964,7 @@ Azure PowerShell에 대한 릴리스의 변경 내용 목록입니다.
 #### <a name="azurermdatafactoryv2"></a>AzureRM.DataFactoryV2
 * ADF .Net SDK 버전이 다음 변경 내용이 포함된 0.8.0-preview로 업데이트되었습니다.
     - 팩터리 리포지토리 작업 구성 추가
-    - QuickBooks LinkedService가 ConsumerKey 및 consumerSecret 속성을 노출하도록 업데이트됨 
+    - QuickBooks LinkedService가 ConsumerKey 및 consumerSecret 속성을 노출하도록 업데이트됨
     - 여러 모델 유형을 SecretBase에서 개체로 업데이트함
     - Blob 이벤트 트리거 추가
 
@@ -1003,7 +1003,7 @@ Azure PowerShell에 대한 릴리스의 변경 내용 목록입니다.
 * ServiceFabric 백 엔드에 대한 지원 추가됨
 * Application Insights 로거에 대한 지원 추가됨
 * '기본' SKU를 API Management 서비스의 유효한 SKU로 인식하는 지원 추가됨
-* 개인 CA가 발급한 인증서를 루트 또는 CA로 설치하는 지원 추가됨
+* 프라이빗 CA가 발급한 인증서를 루트 또는 CA로 설치하는 지원 추가됨
 * KeyVault 및 다중 프록시 호스트 이름을 통한 사용자 정의 SSL 인증서를 수락하는 지원 추가됨
 * MSI ID에 대한 지원 추가됨
 * URL을 통해 정책을 수용하기 위한 지원이 추가되었습니다. 참고: 다음 cmdlet은 이후 릴리스에서 사용되지 않을 예정입니다.
