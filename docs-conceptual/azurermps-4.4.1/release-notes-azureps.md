@@ -298,7 +298,7 @@ Azure PowerShell에 대한 릴리스의 변경 내용 목록입니다.
 
 ## <a name="20170717---version-421"></a>2017.07.17 - 버전 4.2.1
 * 컴퓨팅
-  - VM 디스크/VM 디스크 스냅숏 만들기 및 업데이트 cmdlet 관련 문제 수정(링크)[<https://github.com/azure/azure-powershell/issues/4309>]
+  - VM 디스크/VM 디스크 스냅샷 만들기 및 업데이트 cmdlet 관련 문제 수정(링크)[<https://github.com/azure/azure-powershell/issues/4309>]
     - New-AzureRmDisk
     - New-AzureRmSnapshot
     - Update-AzureRmDisk

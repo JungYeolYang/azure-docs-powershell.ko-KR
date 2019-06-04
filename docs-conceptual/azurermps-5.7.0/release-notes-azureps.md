@@ -876,6 +876,6 @@ Update-Module -Name AzureRM
     - Azure SQL Server에 대한 새 서버 DNS 별칭을 제거하는 Remove-AzureRmSqlServerDnsAlias cmdlet 추가
 * Azure.Storage
   * Azure Storage 클라이언트 라이브러리 8.5.0 및 Azure Storage DataMovement 라이브러리 0.6.3으로 업그레이드
-  * 파일 공유 스냅숏 지원 기능 추가
+  * 파일 공유 스냅샷 지원 기능 추가
     - Get-AzureStorageShare에 'SnapshotTime' 매개 변수 추가
     - Remove-AzureStorageShare에 'IncludeAllSnapshot' 매개 변수 추가
