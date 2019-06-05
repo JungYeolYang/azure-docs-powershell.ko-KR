@@ -7,14 +7,16 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.openlocfilehash: 77d0ce36ae3ab7c7bddd3febef4600fc9652850f
-ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.openlocfilehash: 11847ca2fe09ebeb48f962eab6dac2be06bd8805
+ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56144576"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65534360"
 ---
 # <a name="use-experimental-azure-powershell-modules"></a>실험적 Azure PowerShell 모듈 사용
+
+[!INCLUDE [migrate-to-az](../includes/migrate-to-az.md)]
 
 Azure PowerShell 팀은 Azure의 개발자 도구(특히 CLI)에 중점을 두고 Azure PowerShell 환경에 많은 향상된 기능을 실험하고 있습니다.
 
@@ -67,7 +69,7 @@ Azure CLI 2.0은 최종 사용자가 더 쉽게 시나리오를 “시작”할 
 
 - 더 짧은 이름 - cmdlet의 이름(예: `New-AzureRmVM` => `New-AzVm`) 및 매개 변수 이름(예: `-ResourceGroupName` => `-Rg`)를 포함합니다. “이전” cmdlet과의 호환성에 대한 별칭을 사용합니다. _이전 버전과 호환되는_ 매개 변수 집합을 제공합니다.
 
-- 스마트한 기본값 - 스마트한 기본값을 만들어 “필요한” 정보를 채웁니다. 예를 들면 다음과 같습니다.
+- 스마트한 기본값 - 스마트한 기본값을 만들어 “필요한” 정보를 채웁니다. 예:
   - 리소스 그룹
   - 위치
   - 종속 리소스
