@@ -8,11 +8,11 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.openlocfilehash: 1e25d4650cc20d7b6613e0efb12ec60d424608c4
-ms.sourcegitcommit: 020c69430358b13cbd99fedd5d56607c9b10047b
+ms.sourcegitcommit: 5bdedc77b27b66998387486761ec67ed9326f169
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66375739"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67345354"
 ---
 # <a name="sign-in-with-azure-powershell"></a>Azure PowerShell로 로그인
 
@@ -33,7 +33,7 @@ Azure PowerShell에서는 여러 인증 방법을 지원합니다. 시작하는 
 Connect-AzAccount
 ```
 
-실행되면 이 cmdlet은 토큰 문자열을 제공합니다. 로그인 하려면 이 문자열을 복사하여 브라우저에서 https://microsoft.com/devicelogin에 붙여 넣습니다. 그러면 PowerShell 세션이 인증되어 Azure에 연결됩니다.
+실행되면 이 cmdlet은 토큰 문자열을 제공합니다. 로그인 하려면 이 문자열을 복사하여 브라우저에서 https://microsoft.com/devicelogin 에 붙여 넣습니다. 그러면 PowerShell 세션이 인증되어 Azure에 연결됩니다.
 
 > [!IMPORTANT]
 >

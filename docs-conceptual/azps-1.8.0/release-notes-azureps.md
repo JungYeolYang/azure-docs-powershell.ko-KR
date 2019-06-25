@@ -1,16 +1,16 @@
 ---
 ms.openlocfilehash: 10d8d50131b3c55ae19c5142c42cb47f37c68c92
-ms.sourcegitcommit: 6171bab74aec6785938cad54d584f425ddbb850e
+ms.sourcegitcommit: 5bdedc77b27b66998387486761ec67ed9326f169
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65971906"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67345226"
 ---
 ## <a name="180---april-2019"></a>1.8.0 - 2019년 4월
 ### <a name="highlights-since-the-last-major-release"></a>마지막 주 릴리스 이후의 주요 사항
 * `Az` 모듈 일반 공급
-* `Az` 모듈에 대한 자세한 내용은 https://aka.ms/azps-announce를 방문하세요.
-* Location, ResourceGroup 및 ResourceName 완성자가 추가되었습니다(https://azure.microsoft.com/en-us/blog/completers-in-azure-powershell/).
+* `Az` 모듈에 대한 자세한 내용은 https://aka.ms/azps-announce 를 방문하세요.
+* Location, ResourceGroup 및 ResourceName 완성자가 추가되었습니다(https://azure.microsoft.com/en-us/blog/completers-in-azure-powershell/ ).
 * 와일드카드 지원이 Az.Compute 및 Az.Network에 대한 Get cmdlet에 추가되었습니다.
 * Windows PowerShell 5.1 전용 대화형 사용자 이름/암호 인증이 추가되었습니다.
 * Python 2 Runbook 지원이 Az.Automation에 추가되었습니다.
@@ -113,8 +113,8 @@ ms.locfileid: "65971906"
 ## <a name="170---april-2019"></a>1.7.0 - 2019년 4월
 ### <a name="highlights-since-the-last-major-release"></a>마지막 주 릴리스 이후의 주요 사항
 * `Az` 모듈 일반 공급
-* `Az` 모듈에 대한 자세한 내용은 https://aka.ms/azps-announce를 방문하세요.
-* Location, ResourceGroup 및 ResourceName 완성자가 추가되었습니다(https://azure.microsoft.com/en-us/blog/completers-in-azure-powershell/).
+* `Az` 모듈에 대한 자세한 내용은 https://aka.ms/azps-announce 를 방문하세요.
+* Location, ResourceGroup 및 ResourceName 완성자가 추가되었습니다(https://azure.microsoft.com/en-us/blog/completers-in-azure-powershell/ ).
 * 와일드카드 지원이 Az.Compute 및 Az.Network에 대한 Get cmdlet에 추가되었습니다.
 * Windows PowerShell 5.1 전용 대화형 사용자 이름/암호 인증이 추가되었습니다.
 * Python 2 Runbook 지원이 Az.Automation에 추가되었습니다.
@@ -146,9 +146,9 @@ ms.locfileid: "65971906"
 * '-ResourceId' 또는 '-ResourceGroupName', '-Name' 및 '-ResourceType' 매개 변수를 제공할 때 'Get-AzResource'에 대한 공급자 처리 개선
 * 'Test-AzDeployment' 및 'Test-AzResourceGroupDeployment'에 대한 오류 처리 개선
     - 배포 유효성 검사 외부에서 발생한 오류를 처리하고 그 대신 명령의 출력에 포함
-    - 자세한 내용은 여기 https://github.com/Azure/azure-powershell/issues/6856를 참조하세요.
+    - 자세한 내용은 여기 https://github.com/Azure/azure-powershell/issues/6856 를 참조하세요.
 * 배포 cmdlet 세트에 스크립트 및 작업 시나리오에서 프롬프트를 건너뛰는 '-IgnoreDynamicParameters' 스위치 추가
-    - 자세한 내용은 여기 https://github.com/Azure/azure-powershell/issues/6856를 참조하세요.
+    - 자세한 내용은 여기 https://github.com/Azure/azure-powershell/issues/6856 를 참조하세요.
 
 #### <a name="azsql"></a>Az.Sql
 * 데이터베이스 데이터 분류 지원
@@ -170,8 +170,8 @@ ms.locfileid: "65971906"
 ## <a name="160---march-2019"></a>1.6.0 - 2019년 3월
 ### <a name="highlights-since-the-last-major-release"></a>마지막 주 릴리스 이후의 주요 사항
 * `Az` 모듈 일반 공급
-* `Az` 모듈에 대한 자세한 내용은 https://aka.ms/azps-announce를 방문하세요.
-* Location, ResourceGroup 및 ResourceName 완성자가 추가되었습니다(https://azure.microsoft.com/en-us/blog/completers-in-azure-powershell/).
+* `Az` 모듈에 대한 자세한 내용은 https://aka.ms/azps-announce 를 방문하세요.
+* Location, ResourceGroup 및 ResourceName 완성자가 추가되었습니다(https://azure.microsoft.com/en-us/blog/completers-in-azure-powershell/ ).
 * 와일드카드 지원이 Az.Compute 및 Az.Network에 대한 Get cmdlet에 추가되었습니다.
 * Windows PowerShell 5.1 전용 대화형 사용자 이름/암호 인증이 추가되었습니다.
 * Python 2 Runbook 지원이 Az.Automation에 추가되었습니다.
@@ -249,11 +249,11 @@ ms.locfileid: "65971906"
 
 #### <a name="azresources"></a>Az.Resources
 * `-TemplateObject` 매개 변수를 추가하여 cmdlet을 배포
-    - 자세한 내용은 여기 https://github.com/Azure/azure-powershell/issues/2933를 참조하세요.
+    - 자세한 내용은 여기 https://github.com/Azure/azure-powershell/issues/2933 를 참조하세요.
 * `Get-AzResource`의 결과를 `Set-AzResource`(으)로 파이프할 때 발생하는 문제 수정
-    - 자세한 내용은 여기 https://github.com/Azure/azure-powershell/issues/8240를 참조하세요.
+    - 자세한 내용은 여기 https://github.com/Azure/azure-powershell/issues/8240 를 참조하세요.
 * 실행 시 JSON 데이터 형식 문제 해결 `Set-AzResource`
-    - 자세한 내용은 여기 https://github.com/Azure/azure-powershell/issues/7930를 참조하세요.
+    - 자세한 내용은 여기 https://github.com/Azure/azure-powershell/issues/7930 를 참조하세요.
 
 #### <a name="azsql"></a>Az.Sql
 * AuditingEndpointsCommunicator를 업데이트 합니다.
@@ -345,9 +345,9 @@ Az.RecoveryServices 모듈의 전반적인 가용성.
 
 #### <a name="azresources"></a>Az.Resources
 * 리소스 그룹 관련 태그 수정 
-    - 자세한 내용은 여기 https://github.com/Azure/azure-powershell/issues/8166를 참조하세요.
+    - 자세한 내용은 여기 https://github.com/Azure/azure-powershell/issues/8166 를 참조하세요.
 * `Get-AzureRmRoleAssignment`이(가) -ErrorAction을 준수하지 않는 문제 수정 
-    - 자세한 내용은 여기 https://github.com/Azure/azure-powershell/issues/8235를 참조하세요.
+    - 자세한 내용은 여기 https://github.com/Azure/azure-powershell/issues/8235 를 참조하세요.
 
 #### <a name="azsql"></a>Az.Sql
 * AzSqlDatabaseBackupShortTermRetentionPolicy 가져오기/설정하기 추가
@@ -393,7 +393,7 @@ Az.RecoveryServices 모듈의 전반적인 가용성.
 
 #### <a name="azdatalakestore"></a>Az.DataLakeStore
 * MSI를 사용할 때 ADLS 엔드포인트 문제 수정
-    - 자세한 내용은 여기 https://github.com/Azure/azure-powershell/issues/7462를 참조하세요.
+    - 자세한 내용은 여기 https://github.com/Azure/azure-powershell/issues/7462 를 참조하세요.
 * 잘못된 온라인 도움말 URL 업데이트
 
 #### <a name="aziothub"></a>Az.IotHub
@@ -412,10 +412,10 @@ Az.RecoveryServices 모듈의 전반적인 가용성.
 * Az.Resources: 문제 https://github.com/Azure/azure-powershell/issues/7522 수정
 * Az.Resources: 문제 https://github.com/Azure/azure-powershell/issues/5747 수정
 * 'PSResourceGroupDeployment' 개체의 서식 문제 수정
-    - 자세한 내용은 여기 https://github.com/Azure/azure-powershell/issues/2123를 참조하세요.
+    - 자세한 내용은 여기 https://github.com/Azure/azure-powershell/issues/2123 를 참조하세요.
 
 #### <a name="azservicefabric"></a>Az.ServiceFabric
-* 인증서가 VMSS 모델에 추가되었는데도 예외가 발생할 경우 롤백합니다. 이는 버그 https://github.com/Azure/service-fabric-issues/issues/932를 수정하기 위함입니다.
+* 인증서가 VMSS 모델에 추가되었는데도 예외가 발생할 경우 롤백합니다. 이는 버그 https://github.com/Azure/service-fabric-issues/issues/932 를 수정하기 위함입니다.
 * 일부 오류 메시지를 수정하세요.
 * Az로의 마이그레이션을 통해서는 작동하지 않는 New-AzServiceFabriCluster를 위해 기본값 ARM 템플릿을 가진 클러스터 만들기를 수정하세요.
 * 확장에서 클러스터 id를 확인하여 클러스터에 해당하는 VMSS에만 추가되도록 클러스터/애플리케이션 인증서 추가를 수정하세요.
@@ -478,11 +478,11 @@ Az.RecoveryServices 모듈의 전반적인 가용성.
 
 #### <a name="azresources"></a>Az.Resources
 * 'Get-AzResource'에 '-ODataQuery'및 '-ResourceId' 매개 변수를 제공할 때 매개 변수 집합 문제 수정
-    - 자세한 내용은 여기 https://github.com/Azure/azure-powershell/issues/7875를 참조하세요.
+    - 자세한 내용은 여기 https://github.com/Azure/azure-powershell/issues/7875 를 참조하세요.
 * New/Set-AzPolicyDefinition에서 -Custom 매개 변수 처리 문제 수정
 * New-AzDeployment 설명서에서 오타 수정
 * 'New-AzADUser'에 '-MailNickname'매개 변수가 필수 항목으로 지정됨
-    - 자세한 내용은 여기 https://github.com/Azure/azure-powershell/issues/8220를 참조하세요.
+    - 자세한 내용은 여기 https://github.com/Azure/azure-powershell/issues/8220 를 참조하세요.
 
 #### <a name="azsignalr"></a>Az.SignalR
 * Az.Accounts 모듈을 사용할 때의 이전 버전과의 호환성 문제를 해결합니다.
