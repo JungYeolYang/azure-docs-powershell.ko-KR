@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: get-started-article
 ms.date: 01/14/2019
-ms.openlocfilehash: 0c3b749cb2ac7f11dacafca76b65944f523f727d
-ms.sourcegitcommit: 0356a4694f77eda40eec8c3759b9bb7f28979eb6
+ms.openlocfilehash: c60036ba8be6282007aa34a0bb9c0d9e33197072
+ms.sourcegitcommit: fd62a6376eef9b6ca76df766de1edcd7938c7a30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67193212"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67388928"
 ---
 # <a name="get-started-with-azure-powershell"></a>Azure PowerShell 시작
 
@@ -52,7 +52,7 @@ Azure 계정에 로그인하면 Azure PowerShell cmdlet을 사용하여 구독�
 
 ## <a name="find-commands"></a>명령 찾기
 
-Azure PowerShell cmdlet은 PowerShell을 위한 표준 명명 규칙인 `VERB-NOUN`을 따릅니다. 동사는 작업(예: `Create`,`Get`,`Set`,`Delete`)을 설명하고 명사는 리소스 종류를 설명합니다(예:`AzVM`,`AzKeyVaultCertificate`,`AzFirewall`,`AzVirtualNetworkGateway`). Azure PowerShell에서 명사는 항상 접두사 `Az`를 사용하여 시작합니다. 표준 동사의 전체 목록은 [PowerShell 명령에 대한 승인된 동사](/powershell/developer/cmdlet/approved-verbs-for-windows-powershell-commands)를 참조합니다.
+Azure PowerShell cmdlet은 PowerShell을 위한 표준 명명 규칙인 `VERB-NOUN`을 따릅니다. 동사는 작업(예: `New`,`Get`,`Set`,`Remove`)을 설명하고 명사는 리소스 종류를 설명합니다(예:`AzVM`,`AzKeyVaultCertificate`,`AzFirewall`,`AzVirtualNetworkGateway`). Azure PowerShell에서 명사는 항상 접두사 `Az`를 사용하여 시작합니다. 표준 동사의 전체 목록은 [PowerShell 명령에 대한 승인된 동사](/powershell/developer/cmdlet/approved-verbs-for-windows-powershell-commands)를 참조합니다.
 
 사용 가능한 명사, 동사 및 Azure PowerShell 모듈을 알면 [Get-Command](/powershell/module/microsoft.powershell.core/get-command) cmdlet을 사용하여 명령을 찾을 수 있습니다. 예를 들어 `Get` 동사를 사용하는 VM 관련 명령을 모두 찾으려면 다음을 수행합니다.
 
