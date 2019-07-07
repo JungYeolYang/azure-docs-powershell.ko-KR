@@ -17,7 +17,7 @@ ms.locfileid: "67037677"
 ---
 # <a name="azure-stack-module-172"></a>Azure Stack 모듈 1.7.2
 
-## <a name="requirements"></a>Requirements:
+## <a name="requirements"></a>요구사항
 
 지원되는 최소 Azure Stack 버전은 1904입니다.
 
