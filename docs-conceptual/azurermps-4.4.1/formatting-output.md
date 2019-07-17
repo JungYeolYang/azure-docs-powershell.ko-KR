@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/30/2017
-ms.openlocfilehash: 0e94d30467c5a11bccfa71630f736bedf0d93112
-ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
+ms.openlocfilehash: 7f6cf61eef9c5549dfe78d2d801ab1278db40c17
+ms.sourcegitcommit: 0b644bfecf4224b2ea83520d1a6a956734d9fba4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65535047"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67863558"
 ---
 # <a name="formatting-query-results"></a>쿼리 결과 서식 지정
 
@@ -75,7 +75,7 @@ ResourceGroupName : MYWESTEURG
 
 ## <a name="converting-to-other-data-types"></a>다른 데이터 형식으로 변환
 
-또한 PowerShell은 사용할 수 있는 여러 출력 형식을 제공하여 요구 사항을 충족합니다.  다음 예제에서는 `Select-Object` cmdlet을 사용하여 구독에서 가상 머신의 특성을 사용하고 출력을 데이터베이스 또는 스프레드시트로 쉽게 가져오는 CSV 형식으로 변환합니다.
+또한 PowerShell은 사용할 수 있는 여러 출력 형식을 제공하여 요구 사항을 충족합니다.  다음 예제에서는 `Select-Object` cmdlet을 사용하여 구독에서 가상 머신의 특성을 가져오고, 출력을 CSV 형식으로 변환하여 데이터베이스 또는 스프레드시트로 쉽게 가져옵니다.
 
 ```powershell-interactive
 Get-AzureRmVM | Select-Object ResourceGroupName,Id,VmId,Name,Location,ProvisioningState | ConvertTo-Csv -NoTypeInformation

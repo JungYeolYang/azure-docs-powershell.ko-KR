@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.manager: carmonm
 ms.date: 12/20/2018
-ms.openlocfilehash: eaa4e3ccd2b53304aeaf9cb184814b83f4f88608
-ms.sourcegitcommit: 2054a8f74cd9bf5a50ea7fdfddccaa632c842934
+ms.openlocfilehash: bdb63ce4bb614920582460ae707d8594977e8f71
+ms.sourcegitcommit: 0b644bfecf4224b2ea83520d1a6a956734d9fba4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56153494"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67863574"
 ---
 # <a name="overview-of-azure-powershell"></a>Azure PowerShell 개요
 
@@ -38,8 +38,6 @@ PowerShell에 대해 익숙하지 않으면 PowerShell 소개가 도움이 될 �
 * [PowerShell 스크립팅](/powershell/scripting/powershell-scripting)
 
 이 비디오를 시청할 수도 있습니다. [PowerShell 기본 사항: (파트 1)PowerShell 시작](https://channel9.msdn.com/Blogs/Taste-of-Premier/PowerShellBasicsPart1)
-
-또는 Microsoft Virtual Academy의 [PowerShell 시작](https://mva.microsoft.com/liveevents/powershell-jumpstart)에 참석합니다.
 
 ## <a name="build-your-skills-with-microsoft-learn"></a>Microsoft Learn을 통해 기술 쌓기
 
