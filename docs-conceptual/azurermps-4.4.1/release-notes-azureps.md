@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.workload: ''
 ms.date: 07/26/2017
-ms.openlocfilehash: bee7d63c06ab42e920eea750095facddb8f542d8
-ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
+ms.openlocfilehash: 1491f3f23deb767b754a98b3fab616356daa71f3
+ms.sourcegitcommit: 0b644bfecf4224b2ea83520d1a6a956734d9fba4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65534543"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67863777"
 ---
 # <a name="release-notes"></a>릴리스 정보
 
@@ -372,7 +372,7 @@ Azure PowerShell에 대한 릴리스의 변경 내용 목록입니다.
         - Add-AzureRmDataLakeStoreItemContent
 * Dns
     * Get-AzureRmDnsZone에 대한 파이프 시나리오에서 버그를 수정합니다.
-        - 자세한 내용은 https://github.com/Azure/azure-powershell/issues/4203를 참조하세요.
+        - 자세한 내용은 https://github.com/Azure/azure-powershell/issues/4203 를 참조하세요.
 * HDInsight
     * OMS(Operations Management Suite)를 활성화/비활성화하는 지원이 추가되었습니다.
     * 새 cmdlet
@@ -556,7 +556,7 @@ Azure PowerShell에 대한 릴리스의 변경 내용 목록입니다.
   - PS VM 개체에서 중복된 DataDiskNames 및 NetworkInterfaceIDs 속성을 제거합니다.
   - DataDiskNames 및 NetworkInterfaceIDs 매개 변수를 Remove-AzureRmVMDataDisk 및 Remove-AzureRmVMNetworkInterface에서 각각 옵션으로 지정되었습니다.
   - Get cmdlet이 목록 개체를 반환하는 경우 Get cmdlet의 파이핑 문제가 해결되었습니다.
-  - RDFE cmdlet과 충돌하는 Cmdlet 이름이 바뀌었습니다. 이 문제에 대한 자세한 내용은 https://github.com/Azure/azure-powershell/issues/2917을 참조하세요.
+  - RDFE cmdlet과 충돌하는 Cmdlet 이름이 바뀌었습니다. 이 문제에 대한 자세한 내용은 https://github.com/Azure/azure-powershell/issues/2917 을 참조하세요.
     + `New-AzureVMSqlServerAutoBackupConfig`는 `New-AzureRmVMSqlServerAutoBackupConfig`로 이름이 변경되었습니다.
     + `New-AzureVMSqlServerAutoPatchingConfig`는 `New-AzureRmVMSqlServerAutoPatchingConfig`로 이름이 변경되었습니다.
     + `New-AzureVMSqlServerKeyVaultCredentialConfig`는 `New-AzureRmVMSqlServerKeyVaultCredentialConfig`로 이름이 변경되었습니다.
