@@ -141,7 +141,7 @@ Azure PowerShell에 대한 릴리스의 변경 내용 목록입니다.
 * 복구 서비스에 Azure 파일 공유 지원 추가.
 
 #### <a name="azurermresources"></a>AzureRM.Resources
-* https://github.com/Azure/azure-powershell/issues/7402 에 대한 수정
+* [https://github.com/Azure/azure-powershell/issues/7402](https://github.com/Azure/azure-powershell/issues/7402 ) 에 대한 수정
     - 'Get-AzureRmResource'에 대해 '-ResourceId' 매개 변수를 사용하여 리소스 나열 허용
 
 #### <a name="azurermservicebus"></a>AzureRM.ServiceBus
@@ -380,7 +380,7 @@ Azure PowerShell에 대한 릴리스의 변경 내용 목록입니다.
 * 문제 https://github.com/Azure/azure-powershell/issues/6603 해결
     - Import-AzureRmApiManagementApi 및 *-AzureRmApiManagementCertificate cmdlet은 이제 상대 경로를 처리합니다.
 * 문제 https://github.com/Azure/azure-powershell/issues/6879 해결
-    - CertificateInformation은 Set-AzureRmApiManagement cmdlet이 제대로 작동 하게 하는 설정 가능한 속성입니다. 4.0.4-preview nuget으로 업그레이드하여 해결됨
+    - CertificateInformation은 Set-AzureRmApiManagement cmdlet이 제대로 작동 하게 하는 설정 가능한 속성입니다. 4\.0.4-preview nuget으로 업그레이드하여 해결됨
 * 문제 https://github.com/Azure/azure-powershell/issues/6853 해결
     - 제품에서 이름별 검색에 대해 Odata 필터가 수정됨
 * 문제 https://github.com/Azure/azure-powershell/issues/6814 해결
