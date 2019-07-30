@@ -347,7 +347,7 @@ Azure PowerShell에 대한 릴리스의 변경 내용 목록입니다.
     * RecoveryPolicyMode 지원:
         - New-AzureRmVmssConfig에 'RecoveryPolicyMode' 매개 변수가 추가되었습니다.
     * Compute 리소스 SKU 기능:
-        - 새 cmdlet인 'Get-AzureRmComputeResourceSku'는 모든 계산 리소스 SKU를 나열합니다.
+        - 새 cmdlet인 'Get-AzureRmComputeResourceSku'는 모든 컴퓨팅 리소스 SKU를 나열합니다.
 * DataFactories
     * New-AzureRmDataFactoryGatewayKey를 사용하지 않습니다.
     * New-AzureRmDataFactoryGatewayAuthKey 및 Get-AzureRmDataFactoryGatewayAuthKey를 추가하여 게이트웨이 인증 주요 기능을 도입합니다.
