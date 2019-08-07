@@ -7,16 +7,18 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/04/2019
-ms.openlocfilehash: 29d7c84d0ca9ae8d3e4e22f407b007d2d582f8bc
-ms.sourcegitcommit: 5bdedc77b27b66998387486761ec67ed9326f169
+ms.openlocfilehash: 778fdb463a42b609d3a94c910a2c0f9553ef4eb9
+ms.sourcegitcommit: a261efc84dedfd829c0613cf62f8fcf3aa62adb8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67346563"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68807529"
 ---
 # <a name="use-multiple-azure-subscriptions"></a>여러 Azure 구독 사용
 
 대부분의 Azure 사용자는 단일 구독만 가집니다. 그러나, 사용자가 여러 조직에 속해 있거나 또는 여러 그룹에 걸친 특정 리소스에 액세스하기 위해 조직이 분할된 경우 Azure 내에서 여러 구독을 가질 수 있습니다. CLI는 전역적으로 그리고 명령 당 구독을 선택하는 것을 지원합니다.
+
+구독, 청구 및 비용 관리에 대한 자세한 내용은 [청구 및 비용 관리 설명서](/azure/billing/)를 참조하세요.
 
 ## <a name="tenants-users-and-subscriptions"></a>테넌트, 사용자 및 구독
 

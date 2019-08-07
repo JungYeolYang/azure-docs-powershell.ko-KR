@@ -1,18 +1,18 @@
 ---
 title: Azure PowerShell 제거
 description: Azure PowerShell의 전체 제거를 수행하는 방법
-ms.date: 05/10/2019
+ms.date: 06/10/2019
 author: sptramer
 ms.author: sttramer
 ms.manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.openlocfilehash: b32547e9c3df0df7495d1631a43be6934e1f62dc
-ms.sourcegitcommit: febbbd3f75c8dd1a296281d265289f015b6cb537
+ms.openlocfilehash: e71b4d0d662b29a32610fecb36351532040428e4
+ms.sourcegitcommit: a261efc84dedfd829c0613cf62f8fcf3aa62adb8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67037755"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68807445"
 ---
 # <a name="uninstall-the-azure-powershell-module"></a>Azure PowerShell 모듈 제거
 
@@ -106,7 +106,8 @@ Uninstalling Az.AnalysisServices version 0.7.0
 ```
 
 > [!NOTE]
-> 이 스크립트가 제거할 정확한 종속 모듈 버전과 일치하지 않으면 해당 모듈의 _어떠한_ 버전도 제거하지 않습니다. 이는 시스템에 이러한 종속성을 사용하는 `Az`의 다른 버전이 있을 수 있기 때문입니다. 이 때, 설치되어 있는 경우 찾을 수 없는 모듈 버전이 나열됩니다. 그러면 `Uninstall-Module`을 사용하여 이전 버전을 수동으로 제거할 수 있습니다.
+> 이 스크립트가 제거할 동일한 버전의 정확한 종속성과 매치될 수 없으면 해당 종속성의 _어떠한_ 버전도 제거하지 않습니다. 이는 시스템에 이러한 종속성을 사용하는 대상 모듈의 다른 버전이 있을 수 있기 때문입니다. 이 경우 해당 종속성의 사용 가능한 버전이 나열됩니다.
+> 그러면 `Uninstall-Module`을 사용하여 이전 버전을 수동으로 제거할 수 있습니다.
 
 제거하려는 Azure PowerShell의 모든 버전에 대해 이 명령을 실행합니다. 편의를 위해, 다음 스크립트는 최신 버전을 __제외한__ 모든 Az 버전을 제거합니다.
 
