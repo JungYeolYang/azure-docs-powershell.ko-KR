@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: ead6c48496c646b5184f88aeac64fbe650be17c4
-ms.sourcegitcommit: 6c0d296bfec7c1c35a1d15074ca5eacda6684ea4
+ms.openlocfilehash: 8e63e3efb2671eef435498063010d5704c793060
+ms.sourcegitcommit: a261efc84dedfd829c0613cf62f8fcf3aa62adb8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68657980"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68807469"
 ---
 # <a name="install-the-azure-powershell-module"></a>Azure PowerShell 모듈 설치
 
@@ -40,16 +40,16 @@ PowerShell Core를 사용하는 경우 Azure PowerShell에 대한 추가 요구 
 > [!WARNING]
 > Windows용 PowerShell 5.1에서 사용하기 위해 AzureRM 및 Az 모듈을 모두 동시에 __설치할 수는 없습니다__. 시스템에서 AzureRM을 사용할 수 있도록 유지해야 하는 경우 PowerShell Core 6.x 이상용 Az 모듈을 설치합니다. 이렇게 하려면 [PowerShell Core 6.x 이상을 설치](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-windows)한 다음, PowerShell Core 터미널에서 다음 지침을 따르세요.
 
-모듈을 전역 범위에 설치하려면 상승된 권한으로 PowerShell 갤러리에서 모듈을 설치해야 합니다. Azure PowerShell을 설치하려면 상승된 세션에서 다음 명령을 실행합니다(Windows에서는 "관리자 권한으로 실행", macOS 또는 Linux에서는 슈퍼 사용자 권한으로 실행).
-
-```powershell-interactive
-Install-Module -Name Az -AllowClobber
-```
-
-관리자 권한에 대한 액세스 권한이 없으면 `-Scope` 인수를 추가하여 현재 사용자를 위해 설치할 수 있습니다.
+권장 설치 방법은 활성 사용자에 대해서만 설치하는 것입니다.
 
 ```powershell-interactive
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
+```
+
+시스템의 모든 사용자에 대해 설치하려면 관리자 권한이 필요합니다. 관리자 권한 PowerShell 세션에서 관리자 권한으로 실행하거나 macOS 또는 Linux에서 `sudo` 명령을 사용하여 실행합니다.
+
+```powershell-interactive
+Install-Module -Name Az -AllowClobber -Scope AllUsers
 ```
 
 기본적으로 PowerShell 갤러리는 PowerShellGet에 대한 신뢰할 수 있는 리포지토리로 구성되지 않습니다. PSGallery를 처음 사용할 때는 다음과 같은 메시지가 표시됩니다.

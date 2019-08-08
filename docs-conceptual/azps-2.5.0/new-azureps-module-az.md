@@ -7,16 +7,16 @@ ms.author: sttramer
 ms.manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.openlocfilehash: da1d7ec9a196068db237d871834b92f8b077b42c
-ms.sourcegitcommit: 6c0d296bfec7c1c35a1d15074ca5eacda6684ea4
+ms.openlocfilehash: 8dc5a7d3b47870455213aa01aebc1d215ad640a7
+ms.sourcegitcommit: a261efc84dedfd829c0613cf62f8fcf3aa62adb8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68657606"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68807450"
 ---
 # <a name="introducing-the-new-azure-powershell-az-module"></a>새로운 Azure PowerShell Az 모듈 소개
 
-2018년 12월부터 Azure PowerShell Az 모듈은 일반 릴리스로 출시되며 Azure와 상호 작용하기 위한 PowerShell 모듈입니다. Az은 짧아진 명령과 향상된 안정성을 제공하며, 플랫폼 간 지원합니다. Az은 AzureRM의 동일한 기능을 제공하는 동시에 AzureRM에서 쉬운 마이그레이션 경로를 제공합니다.
+2018년 12월부터 Azure PowerShell Az 모듈은 일반 릴리스로 출시되며 Azure와 상호 작용하기 위한 PowerShell 모듈입니다. Az은 짧아진 명령과 향상된 안정성을 제공하며, 플랫폼 간 지원합니다. Az는 또한 AzureRM과 기능 패리티를 가지고 있어 간편한 마이그레이션 경로를 제공합니다.
 
 Az 모듈을 사용하면 이제 Azure PowerShell이 Windows의 PowerShell 5.1과 호환되며, Windows, macOS 및 Linux를 포함하여 지원되는 모든 플랫폼의 PowerShell Core 6.x 이상과 호환됩니다.
 
@@ -67,6 +67,4 @@ Az 모듈에는 새 구문으로 업데이트하는 동안 기존 스크립트�
 
 ## <a name="continued-support-for-azurerm"></a>지속적인 AzureRM 지원
 
-기존 AzureRM 모듈은 새 cmdlet 또는 기능을 더 이상 받을 수 없습니다. 그러나 AzureRM은 여전히 공식적으로 유지 관리되며, 적어도 2020년 12월까지 버그 수정도 수행됩니다.
-
-Az 모듈이 완전한 기능을 갖추거나, 테스트되거나, 프로덕션을 지원할 준비가 되었는지 여부에 대해 걱정하는 경우가 있습니다. 이제 AzureRM에 들어간 모든 엔지니어링 작업은 기존 모듈에서 코드를 최대한 많이 다시 사용하고 새 모듈과 기능적으로 호환되도록 하기 위해 광범위하게 테스트하는 작업을 포함하여 Az에 집중되고 있습니다. Az로 이동하는 경우 특정 기능이 나타날 때까지 기다리지 않고 조직의 일정에 따라서만 영향을 받습니다.
+AzureRM은 더 이상 새 cmdlet 또는 기능을 받지 않습니다. 그러나 AzureRM 모듈은 여전히 공식적으로 유지되며 2020년 12월까지 버그 수정도 이루어집니다.

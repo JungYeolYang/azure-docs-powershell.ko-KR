@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: d99265c7f156622d876d700106e2b06dd729e8b8
-ms.sourcegitcommit: 020c69430358b13cbd99fedd5d56607c9b10047b
+ms.openlocfilehash: 8e63e3efb2671eef435498063010d5704c793060
+ms.sourcegitcommit: a261efc84dedfd829c0613cf62f8fcf3aa62adb8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66365738"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68807512"
 ---
 # <a name="install-the-azure-powershell-module"></a>Azure PowerShell 모듈 설치
 
@@ -37,23 +37,19 @@ PowerShell Core를 사용하는 경우 Azure PowerShell에 대한 추가 요구 
 
 ## <a name="install-the-azure-powershell-module"></a>Azure PowerShell 모듈 설치
 
-> [!IMPORTANT]
->
-> AzureRM 및 Az 모듈을 동시에 설치할 수 있습니다. 모듈을 모두 설치한 후 __별칭을 사용 않 함으로 설정__합니다.
-> 별칭을 사용하도록 설정하면 AzureRM cmdlet 및 Az 명령 별칭 간의 충돌이 발생하여 예기치 않은 동작이 발생할 수 있습니다.
-> Az 모듈을 설치하기 전에 AzureRM을 제거하는 것이 좋습니다. 항상 AzureRM을 제거할 수 있으며 또는 언제든지 별칭을 사용하도록 설정할 수 있습니다. AzureRM 명령 별칭을 알아보려면 [AzureRM에서 Az로 마이그레이션](migrate-from-azurerm-to-az.md)을 참조합니다.
-> 제거 방법은 [AzureRM 모듈 제거](uninstall-az-ps.md#uninstall-the-azurerm-module)를 참조하세요. 
+> [!WARNING]
+> Windows용 PowerShell 5.1에서 사용하기 위해 AzureRM 및 Az 모듈을 모두 동시에 __설치할 수는 없습니다__. 시스템에서 AzureRM을 사용할 수 있도록 유지해야 하는 경우 PowerShell Core 6.x 이상용 Az 모듈을 설치합니다. 이렇게 하려면 [PowerShell Core 6.x 이상을 설치](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-windows)한 다음, PowerShell Core 터미널에서 다음 지침을 따르세요.
 
-모듈을 전역 범위에 설치하려면 상승된 권한으로 PowerShell 갤러리에서 모듈을 설치해야 합니다. Azure PowerShell을 설치하려면 상승된 세션에서 다음 명령을 실행합니다(Windows에서는 "관리자 권한으로 실행", macOS 또는 Linux에서는 슈퍼 사용자 권한으로 실행).
-
-```powershell-interactive
-Install-Module -Name Az -AllowClobber
-```
-
-관리자 권한에 대한 액세스 권한이 없으면 `-Scope` 인수를 추가하여 현재 사용자를 위해 설치할 수 있습니다.
+권장 설치 방법은 활성 사용자에 대해서만 설치하는 것입니다.
 
 ```powershell-interactive
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
+```
+
+시스템의 모든 사용자에 대해 설치하려면 관리자 권한이 필요합니다. 관리자 권한 PowerShell 세션에서 관리자 권한으로 실행하거나 macOS 또는 Linux에서 `sudo` 명령을 사용하여 실행합니다.
+
+```powershell-interactive
+Install-Module -Name Az -AllowClobber -Scope AllUsers
 ```
 
 기본적으로 PowerShell 갤러리는 PowerShellGet에 대한 신뢰할 수 있는 리포지토리로 구성되지 않습니다. PSGallery를 처음 사용할 때는 다음과 같은 메시지가 표시됩니다.
@@ -71,6 +67,28 @@ Are you sure you want to install the modules from 'PSGallery'?
 설치를 계속하려면 `Yes` 또는 `Yes to All`로 답변합니다.
 
 Az 모듈은 Azure PowerShell cmdlet의 롤업 모듈입니다. 설치하면 사용 가능한 모든 Azure Resource Manager 모듈이 다운로드되고 cmdlet을 사용할 수 있게 됩니다.
+
+## <a name="troubleshooting"></a>문제 해결
+
+Azure PowerShell 모듈을 설치할 때 나타나는 몇 가지 일반적인 문제는 다음과 같습니다. 여기에 나열되지 않은 문제가 발생하면 [GitHub에서 문제를 제출](https://github.com/azure/azure-powershell/issues)하세요.
+
+### <a name="proxy-blocks-connection"></a>프록시 연결 차단
+
+`Install-Module`에서 PowerShell 갤러리에 연결할 수 없다는 오류가 발생하면 프록시를 지원하고 있을 수 있습니다. 운영 체제마다 시스템 전체 프록시 구성에 대한 요구 사항이 다르며 여기서는 자세히 다루지 않습니다. 프록시 설정 및 OS에 맞게 구성하는 방법은 시스템 관리자에게 문의하세요.
+
+PowerShell 자체는 이 프록시를 자동으로 사용하도록 구성되지 않을 수 있습니다. PowerShell 5.1 이상에서는 다음 명령을 사용하여 PowerShell 세션에 사용할 프록시를 구성합니다.
+
+```powershell
+(New-Object System.Net.WebClient).Proxy.Credentials = `
+  [System.Net.CredentialCache]::DefaultNetworkCredentials
+```
+
+운영 체제 자격 증명이 올바르게 구성되어 있으면 PowerShell 요청이 프록시를 통해 라우팅됩니다.
+세션 간에 이 설정을 유지하려면 해당 명령을 [PowerShell 프로필](/powershell/module/microsoft.powershell.core/about/about_profiles)에 추가합니다.
+
+패키지를 설치하려면 프록시에서 다음 주소에 대한 HTTPS 연결을 허용해야 합니다.
+
+* `https://www.powershellgallery.com`
 
 ## <a name="sign-in"></a>로그인
 
