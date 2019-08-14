@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: 8e63e3efb2671eef435498063010d5704c793060
-ms.sourcegitcommit: a261efc84dedfd829c0613cf62f8fcf3aa62adb8
+ms.openlocfilehash: 21345445efc89ab54bb7483cfe81f439f0a887a3
+ms.sourcegitcommit: b02cbcd00748a4a9a4790a5fba229ce53c3bf973
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68807469"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68861200"
 ---
 # <a name="install-the-azure-powershell-module"></a>Azure PowerShell 모듈 설치
 
@@ -38,7 +38,7 @@ PowerShell Core를 사용하는 경우 Azure PowerShell에 대한 추가 요구 
 ## <a name="install-the-azure-powershell-module"></a>Azure PowerShell 모듈 설치
 
 > [!WARNING]
-> Windows용 PowerShell 5.1에서 사용하기 위해 AzureRM 및 Az 모듈을 모두 동시에 __설치할 수는 없습니다__. 시스템에서 AzureRM을 사용할 수 있도록 유지해야 하는 경우 PowerShell Core 6.x 이상용 Az 모듈을 설치합니다. 이렇게 하려면 [PowerShell Core 6.x 이상을 설치](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-windows)한 다음, PowerShell Core 터미널에서 다음 지침을 따르세요.
+> Windows용 PowerShell 5.1에서 사용하기 위해 AzureRM 및 Az 모듈을 모두 동시에 __설치할 수는 없습니다__. 시스템에서 AzureRM을 사용할 수 있도록 유지해야 하는 경우 PowerShell Core 6.x 이상용 Az 모듈을 설치합니다. 이렇게 하려면 [PowerShell Core 6.x 이상을 설치](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows)한 다음, PowerShell Core 터미널에서 다음 지침을 따르세요.
 
 권장 설치 방법은 활성 사용자에 대해서만 설치하는 것입니다.
 

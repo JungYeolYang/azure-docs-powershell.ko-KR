@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: e05a519fabe41f3c23ffd63a8ceea69a0e58d5e1
-ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
+ms.openlocfilehash: ff50c676d42cad515aea74ea960105ed76f418a6
+ms.sourcegitcommit: b02cbcd00748a4a9a4790a5fba229ce53c3bf973
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65534683"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68863304"
 ---
 # <a name="install-azure-powershell-on-windows-with-powershellget"></a>PowerShellGet으로 Azure PowerShell을 설치
 
@@ -55,7 +55,7 @@ PowerShellGet이 설치되지 않은 경우, 귀하의 시스템을 위해 아�
 |시나리오|설치 지침|
 |---|---|
 |윈도우 10<br/>Windows Server 2016|OS에 포함된 WMF(Windows Management Framework) 5.0으로 빌드됩니다.|
-|PowerShell 5로 업그레이드| <ol><li>[최신 버전의 WMF 설치](https://www.microsoft.com/en-us/download/details.aspx?id=54616)</li><li>다음 명령 실행:<br/>```Install-Module PowerShellGet -Force```</li></ol>|
+|PowerShell 5로 업그레이드| <ol><li>[최신 버전의 WMF 설치](https://www.microsoft.com/download/details.aspx?id=54616)</li><li>다음 명령 실행:<br/>```Install-Module PowerShellGet -Force```</li></ol>|
 |PowerShell 3 또는 PowerShell 4이 설치된 Windows|<ol><il>[PackageManagement 모듈 가져오기](http://go.microsoft.com/fwlink/?LinkID=746217)</il><li>다음 명령 실행:<br/>```Install-Module PowerShellGet -Force```</li></ol>|
 
 > [!NOTE]

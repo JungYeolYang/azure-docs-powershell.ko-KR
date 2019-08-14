@@ -7,12 +7,12 @@ ms.author: sttramer
 ms.manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
-ms.openlocfilehash: 8dc5a7d3b47870455213aa01aebc1d215ad640a7
-ms.sourcegitcommit: a261efc84dedfd829c0613cf62f8fcf3aa62adb8
+ms.openlocfilehash: 21d41b6e14d1b39a78e40daee74b80de3a80c2a0
+ms.sourcegitcommit: b02cbcd00748a4a9a4790a5fba229ce53c3bf973
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68807450"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68861257"
 ---
 # <a name="introducing-the-new-azure-powershell-az-module"></a>새로운 Azure PowerShell Az 모듈 소개
 
@@ -39,7 +39,7 @@ Azure 지원을 모든 플랫폼에 제공하기 위해 노력하고 있습니�
 
 PowerShell의 최신 Azure 기능을 계속 유지하려면 가능한 한 빨리 Az 모듈로 마이그레이션해야 합니다. AzureRM에 대한 대체 모듈로 Az 모듈을 설치할 준비가 되지 않았으면 Az를 사용하여 실험할 수 있는 몇 가지 옵션이 있습니다.
 
-* [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)이 있는 `PowerShell` 환경을 사용합니다.
+* [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)이 있는 `PowerShell` 환경을 사용합니다.
   Azure Cloud Shell은 Az 모듈이 설치되고 `Enable-AzureRM` 호환성 별칭을 사용하도록 설정된 브라우저 기반 셸 환경입니다.
 * Windows용 PowerShell 5.1과 함께 설치된 AzureRM 모듈을 유지하는 한편, PowerShell Core 6.x 이상용 Az 모듈도 설치합니다. Windows용 PowerShell 5.1과 PowerShell Core는 별도의 모듈 모음을 사용합니다. [PowerShell Core 설치](/powershell/scripting/install/installing-powershell-core-on-windows) 지침을 수행한 다음, PowerShell Core 터미널에서 [Az 모듈을 설치](install-az-ps.md)합니다.
 

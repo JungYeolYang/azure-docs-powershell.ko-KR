@@ -1,16 +1,16 @@
 ---
-ms.openlocfilehash: ffeba2cff2e157e7ec0fb7639f9d4075c359c85e
-ms.sourcegitcommit: 0b644bfecf4224b2ea83520d1a6a956734d9fba4
+ms.openlocfilehash: faf9313d642a3ca45731f4527aafdfd7f5096a78
+ms.sourcegitcommit: b02cbcd00748a4a9a4790a5fba229ce53c3bf973
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67863831"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68861279"
 ---
 ## <a name="180---april-2019"></a>1.8.0 - 2019년 4월
 ### <a name="highlights-since-the-last-major-release"></a>마지막 주 릴리스 이후의 주요 사항
 * `Az` 모듈 일반 공급
 * `Az` 모듈에 대한 자세한 내용은 https://aka.ms/azps-announce 를 방문하세요.
-* Location, ResourceGroup 및 ResourceName 완성자가 추가되었습니다(https://azure.microsoft.com/en-us/blog/completers-in-azure-powershell/ ).
+* Location, ResourceGroup 및 ResourceName 완성자가 추가되었습니다(https://azure.microsoft.com/blog/completers-in-azure-powershell/ ).
 * 와일드카드 지원이 Az.Compute 및 Az.Network에 대한 Get cmdlet에 추가되었습니다.
 * Windows PowerShell 5.1 전용 대화형 사용자 이름/암호 인증이 추가되었습니다.
 * Python 2 Runbook 지원이 Az.Automation에 추가되었습니다.
@@ -114,7 +114,7 @@ ms.locfileid: "67863831"
 ### <a name="highlights-since-the-last-major-release"></a>마지막 주 릴리스 이후의 주요 사항
 * `Az` 모듈 일반 공급
 * `Az` 모듈에 대한 자세한 내용은 https://aka.ms/azps-announce 를 방문하세요.
-* Location, ResourceGroup 및 ResourceName 완성자가 추가되었습니다(https://azure.microsoft.com/en-us/blog/completers-in-azure-powershell/ ).
+* Location, ResourceGroup 및 ResourceName 완성자가 추가되었습니다(https://azure.microsoft.com/blog/completers-in-azure-powershell/ ).
 * 와일드카드 지원이 Az.Compute 및 Az.Network에 대한 Get cmdlet에 추가되었습니다.
 * Windows PowerShell 5.1 전용 대화형 사용자 이름/암호 인증이 추가되었습니다.
 * Python 2 Runbook 지원이 Az.Automation에 추가되었습니다.
@@ -171,7 +171,7 @@ ms.locfileid: "67863831"
 ### <a name="highlights-since-the-last-major-release"></a>마지막 주 릴리스 이후의 주요 사항
 * `Az` 모듈 일반 공급
 * `Az` 모듈에 대한 자세한 내용은 https://aka.ms/azps-announce 를 방문하세요.
-* Location, ResourceGroup 및 ResourceName 완성자가 추가되었습니다(https://azure.microsoft.com/en-us/blog/completers-in-azure-powershell/ ).
+* Location, ResourceGroup 및 ResourceName 완성자가 추가되었습니다(https://azure.microsoft.com/blog/completers-in-azure-powershell/ ).
 * 와일드카드 지원이 Az.Compute 및 Az.Network에 대한 Get cmdlet에 추가되었습니다.
 * Windows PowerShell 5.1 전용 대화형 사용자 이름/암호 인증이 추가되었습니다.
 * Python 2 Runbook 지원이 Az.Automation에 추가되었습니다.
@@ -809,7 +809,7 @@ Application Gateway에서 RewriteRuleSets를 구성하는 것에 대한 지원�
 * 대상에 메타데이터가 있을 때 Blob/파일이 메타 데이터를 복사하지 않는 문제 수정
     - Start-AzureStorageBlobCopy
     - Start-AzureStorageFileCopy
-* 특정 위치의 저장소 리소스 사용을 지원하고 글로벌 저장소 리소스 사용 가져오기는 더 이상 사용되지 않는다는 경고 메시지를 추가합니다.
+* 특정 위치의 스토리지 리소스 사용을 지원하고 글로벌 스토리지 리소스 사용 가져오기는 더 이상 사용되지 않는다는 경고 메시지를 추가합니다.
     - Get-AzStorageUsage
     
 #### <a name="azcognitiveservices"></a>Az.CognitiveServices

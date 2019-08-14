@@ -7,12 +7,12 @@ manager: carmonm
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 09/09/2018
-ms.openlocfilehash: d6545f18115e4162bb716def79f6b4cae8953a9c
-ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
+ms.openlocfilehash: 464d7efa640f1d1ffd1c34bfbe6cf13cbe5202b6
+ms.sourcegitcommit: b02cbcd00748a4a9a4790a5fba229ce53c3bf973
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65534704"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68863233"
 ---
 # <a name="sign-in-with-azure-powershell"></a>Azure PowerShell로 로그인
 
@@ -54,7 +54,7 @@ Azure 리소스의 관리 ID에 대한 자세한 내용은 [Azure VM에서 Azure
 
 ## <a name="sign-in-as-a-cloud-solution-provider-csp"></a>CSP(클라우드 솔루션 공급자)로 로그인
 
-[CSP(클라우드 솔루션 공급자)](https://azure.microsoft.com/en-us/offers/ms-azr-0145p/) 로그인에는 `-TenantId`를 사용해야 합니다. 일반적으로 이 매개 변수를 테넌트 ID 또는 도메인 이름으로 제공할 수 있습니다. 그러나 CSP 로그인의 경우 **테넌트 ID**를 제공해야 합니다.
+[CSP(클라우드 솔루션 공급자)](https://azure.microsoft.com/offers/ms-azr-0145p/) 로그인에는 `-TenantId`를 사용해야 합니다. 일반적으로 이 매개 변수를 테넌트 ID 또는 도메인 이름으로 제공할 수 있습니다. 그러나 CSP 로그인의 경우 **테넌트 ID**를 제공해야 합니다.
 
 ```azurepowershell-interactive
 Connect-AzureRmAccount -TenantId 'xxxx-xxxx-xxxx-xxxx'

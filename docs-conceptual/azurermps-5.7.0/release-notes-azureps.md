@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.workload: ''
 ms.date: 2/20/2018
-ms.openlocfilehash: ee9fb7e777d06f50514c6b4ba39805936b867045
-ms.sourcegitcommit: bbd3f061cac3417ce588487c1ae4e0bc52c11d6a
+ms.openlocfilehash: 61ab0f91c3d6fffdbffd336fa0d6ed9b0ab8f6ec
+ms.sourcegitcommit: b02cbcd00748a4a9a4790a5fba229ce53c3bf973
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65535063"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68863288"
 ---
 # <a name="release-notes"></a>릴리스 정보
 
@@ -159,7 +159,7 @@ Update-Module -Name AzureRM
 ## <a name="550---march-2018"></a>5.5.0 - 2018년 3월
 #### <a name="azurermprofile"></a>AzureRM.Profile
 * 별칭 가져오기 문제 해결
-* 6.0.8 버전과 병렬로 Newtonsoft.Json 버전 10.0.3 로드
+* 6\.0.8 버전과 병렬로 Newtonsoft.Json 버전 10.0.3 로드
 
 #### <a name="azurestorage"></a>Azure.Storage
 * 일시 삭제 기능 지원
@@ -543,7 +543,7 @@ Update-Module -Name AzureRM
 #### <a name="azurermrecoveryservicesbackup"></a>AzureRM.RecoveryServices.Backup
 * 현재 구독에서 리소스 그룹을 통해 탭 완성 기능을 허용하는 -ResourceGroup 매개 변수에 ResourceGroup Completer를 추가했습니다.
 * Restore-AzureRmRecoveryServicesBackupItem cmdlet에 -UseOriginalStorageAccount 옵션을 추가했습니다.
-  - 이 플래그를 사용하면 사용자가 원래 VM과 최대한 가까운 복원된 VM의 구성이 유지하도록 원래 저장소 계정에 디스크를 복원하게 됩니다.
+  - 이 플래그를 사용하면 사용자가 원래 VM과 최대한 가까운 복원된 VM의 구성이 유지하도록 원래 스토리지 계정에 디스크를 복원하게 됩니다.
   - 복원 작업의 성능을 향상시키는 데에도 도움이 됩니다.
 
 #### <a name="azurermrediscache"></a>AzureRM.RedisCache
@@ -597,7 +597,7 @@ Update-Module -Name AzureRM
 * 현재 구독에서 리소스 그룹을 통해 탭 완성 기능을 허용하는 -ResourceGroup 매개 변수에 ResourceGroup Completer를 추가했습니다.
 * -EnableEncryptionService None 매개 변수를 사용하여 New-AzureRMStorageAccount 실행 cmdlet의 null 참조 문제를 해결합니다.
 * 장기 실행 Storage cmdlet에 대한 -AsJob 지원이 추가되었습니다. 선택된 cmdlet을 백그라운드에서 실행하고 작업을 반환하여 진행률을 추적 및 제어할 수 있습니다.
-    - 영향을 받는 cmdlet은 저장소 계정 및 네트워크 규칙에 대한 New-, Remove-, Add- 및 Update-입니다.
+    - 영향을 받는 cmdlet은 스토리지 계정 및 네트워크 규칙에 대한 New-, Remove-, Add- 및 Update-입니다.
 
 #### <a name="azurermstreamanalytics"></a>AzureRM.StreamAnalytics
 * 유효한 위치를 통해 탭 완성 기능을 허용하는 -Location 매개 변수에 Location Completer를 추가했습니다.
@@ -669,7 +669,7 @@ Update-Module -Name AzureRM
   - 새 Cmdlet Update-AzureRmPowerBIEmbeddedCapacity - PowerBI Embedded Capacity의 인스턴스를 수정합니다.
 * 프로필
   - USGovernmentActiveDirectoryEndpoint가 https://login.microsoftonline.us/ 로 업데이트됨
-    - Azure Government 끝점 매핑에 대한 보다 자세한 내용은 다음을 참조하세요. https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-developer-guide#endpoint-mapping
+    - Azure Government 끝점 매핑에 대한 보다 자세한 내용은 다음을 참조하세요. https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide#endpoint-mapping
     - cmdlet에 대한 -AsJob 지원이 추가됨. 선택된 cmdlet을 사용하여 백그라운드에서 실행하고 작업을 반환하여 진행률 추적 및 제어
     - -AsJob 매개 변수가 Get-AzureRmSubscription cmdlet에 추가됨
 * RecoveryServices.Backup
@@ -723,15 +723,15 @@ Update-Module -Name AzureRM
   - AzureRM.StreamAnalytics
 
 ## <a name="2017118---version-500"></a>2017.11.8 - 버전 5.0.0
-* 참고:  이는 호환성이 손상되는 변경 릴리스입니다. 중요 변경 사항의 전체 목록은 마이그레이션 가이드(https://aka.ms/azps-migration-guide))를 참조하세요.
+* 참고:  이는 호환성이 손상되는 변경 릴리스입니다. 중요 변경 사항의 전체 목록은 마이그레이션 가이드(https://aka.ms/azps-migration-guide) )를 참조하세요.
 * AzureRM의 모든 cmdlet는 이제 온라인 도움말을 지원합니다.
   - -Online 매개 변수와 함께 Get-Help를 실행하여 기본 인터넷 브라우저에서 온라인 도움말을 엽니다.
 * AnalysisServices
   * 동기화를 위해 새로운 AsAzure REST API로 작동하도록 Synchronize-AzureAsInstance 명령 수정
 * ApiManagement
   * 이 릴리스의 ApiManagement에 대한 중요 변경 사항은 마이그레이션 가이드를 참조하세요.
-  * 문제 https://github.com/Azure/azure-powershell/issues/4510의 수정을 위해 Cmdlet Get-AzureRmApiManagementUser 업데이트
-  * [https://github.com/Azure/azure-powershell/issues/4069](https://github.com/Azure/azure-powershell/issues/4069)의 경로가 비어 있는 API 생성을 위해 Cmdlet New-AzureRmApiManagementApi 업데이트
+  * 문제 https://github.com/Azure/azure-powershell/issues/4510 의 수정을 위해 Cmdlet Get-AzureRmApiManagementUser 업데이트
+  * [https://github.com/Azure/azure-powershell/issues/4069](https://github.com/Azure/azure-powershell/issues/4069 )의 경로가 비어 있는 API 생성을 위해 Cmdlet New-AzureRmApiManagementApi 업데이트
 * ApplicationInsights
   * applicaiton insights 리소스를 가져오기/만들기/제거하기 위해 명령 추가
     - Get AzureRmApplicationInsights
@@ -838,7 +838,7 @@ Update-Module -Name AzureRM
     - Disable-AzureRmRecoveryServicesBackupRPMountScript
   * RecoveryServices.Backup SDK 버전을 최신 버전으로 업데이트됨
   * 테스트 실행에 필요한 모든 설정이 테스트 자체에서 지정되도록 Azure VM 워크로드에 대한 테스트를 업데이트했습니다.
-  * [https://github.com/Azure/azure-powershell/issues/3164](https://github.com/Azure/azure-powershell/issues/3164) 수정
+  * [https://github.com/Azure/azure-powershell/issues/3164](https://github.com/Azure/azure-powershell/issues/3164 ) 수정
 * RecoveryServices.SiteRecovery
   * ASR VMware의 Azure Site Recovery에 대한 변경 사항(cmdlet은 현재 Enterprise-Enterprise, Enterprise-Azure, HyperV-Azure에 대한 작업을 지원)
     - New-AzureRmRecoveryServicesAsrPolicy

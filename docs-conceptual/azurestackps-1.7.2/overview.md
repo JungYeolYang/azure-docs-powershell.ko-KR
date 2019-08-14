@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.manager: knithinc
 ms.date: 02/06/2019
-ms.openlocfilehash: b77e09f6fcd5b7752af9f51a42d357db4f1b13db
-ms.sourcegitcommit: febbbd3f75c8dd1a296281d265289f015b6cb537
+ms.openlocfilehash: 1b3d707e862dd0c21e9e6b0a89f429ff21b1a99d
+ms.sourcegitcommit: b02cbcd00748a4a9a4790a5fba229ce53c3bf973
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67037677"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68861338"
 ---
 # <a name="azure-stack-module-172"></a>Azure Stack 모듈 1.7.2
 
@@ -21,7 +21,7 @@ ms.locfileid: "67037677"
 
 지원되는 최소 Azure Stack 버전은 1904입니다.
 
-참고: 이전 버전의 Azure Stack인 경우 [Azure Stack Powershell 설치](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-powershell-install#install-azure-stack-powershell)를 확인하세요.
+참고: 이전 버전의 Azure Stack인 경우 [Azure Stack Powershell 설치](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install#install-azure-stack-powershell)를 확인하세요.
 
 ## <a name="install"></a>설치
 
