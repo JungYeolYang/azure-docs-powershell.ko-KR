@@ -107,7 +107,7 @@ Connect-AzAccount
 
 ## <a name="update-the-azure-powershell-module"></a>Azure PowerShell 모듈 업데이트
 
-Az 모듈의 패키지 방식으로 인해 [Update-Module](/powershell/module/powershellget/update-module) 명령에서 설치를 올바르게 업데이트하지 않습니다. Az는 기술적으로 Azure 서비스와 상호 작용하는 cmdlet이 포함된 모든 하위 모듈을 포함한 메타 모듈입니다. 즉, Azure PowerShell 모듈을 업데이트하려면 __업데이트__하는 대신 __다시 설치__해야 합니다. 이 작업은 설치와 동일한 방식으로 수행되지만 `-Force` 인수를 추가해야 할 수도 있습니다.
+Az 모듈의 패키지 방식으로 인해 [Update-Module](/powershell/module/powershellget/update-module) 명령에서 설치를 올바르게 업데이트하지 않습니다. Az는 기술적으로 Azure 서비스와 상호 작용하는 cmdlet이 포함된 모든 하위 모듈을 포함한 메타 모듈입니다. 즉, Azure PowerShell 모듈을 업데이트하려면 __업데이트__ 하는 대신 __다시 설치__ 해야 합니다. 이 작업은 설치와 동일한 방식으로 수행되지만 `-Force` 인수를 추가해야 할 수도 있습니다.
 
 ```powershell
 Install-Module -Name Az -AllowClobber -Force
