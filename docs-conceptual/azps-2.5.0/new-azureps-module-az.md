@@ -16,7 +16,7 @@ ms.locfileid: "68861257"
 ---
 # <a name="introducing-the-new-azure-powershell-az-module"></a>새로운 Azure PowerShell Az 모듈 소개
 
-2018년 12월부터 Azure PowerShell Az 모듈은 일반 릴리스로 출시되며 Azure와 상호 작용하기 위한 PowerShell 모듈입니다. Az은 짧아진 명령과 향상된 안정성을 제공하며, 여러 플랫폼을 지원합니다. Az는 또한 AzureRM과 기능 패리티를 가지고 있어 간편한 마이그레이션 경로를 제공합니다.
+2018년 12월부터 Azure PowerShell Az 모듈은 일반 릴리스로 출시되며 이는 Azure와 상호 작용하기 위한 PowerShell 모듈입니다. Az는 짧아진 명령과 향상된 안정성을 제공하며, 여러 플랫폼을 지원합니다. Az는 또한 AzureRM과 기능 패리티를 가지고 있어 간편한 마이그레이션 경로를 제공합니다.
 
 Az 모듈을 사용하면 이제 Azure PowerShell이 Windows의 PowerShell 5.1과 호환되며, Windows, macOS 및 Linux를 포함하여 지원되는 모든 플랫폼의 PowerShell Core 6.x 이상과 호환됩니다.
 
