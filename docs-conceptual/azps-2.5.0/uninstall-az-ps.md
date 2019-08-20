@@ -130,7 +130,7 @@ MSI 패키지를 사용하여 Azure PowerShell AzureRM 모듈을 설치한 경�
 | 윈도우 10 | 시작 > 설정 > 앱 |
 | Windows 7 </br>Windows 8 | 시작>제어판 > 프로그램 > 프로그램 제거 |
 
-이 화면을 띄우면 프로그램 목록에 __Azure PowerShell__이 보일 것입니다. 이 앱을 제거하면 됩니다. 이 프로그램이 나열되지 않으면 PowerShellGet을 통해 설치한 후 다음 지침을 따라야 합니다.
+이 화면을 띄우면 프로그램 목록에 __Azure PowerShell__ 이 보일 것입니다. 이 앱을 제거하면 됩니다. 이 프로그램이 나열되지 않으면 PowerShellGet을 통해 설치한 후 다음 지침을 따라야 합니다.
 
 ### <a name="uninstall-from-powershell"></a>PowerShell에서 제거하기
 
